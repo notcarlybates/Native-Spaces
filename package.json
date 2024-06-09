@@ -1,0 +1,93 @@
+{
+	"name": "roundware-web-template",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "PORT=2345 react-scripts start",
+		"deploy": "npm run build && cp ./dist/index.html ./dist/200.html && surge --domain https://roundware-typescript.surge.sh dist",
+		"build": "react-scripts build",
+		"install-rwf": "cd ../roundware-web-framework && npm run build && npm pack && cd ../roundware-web-template && rm -rf node_modules/roundware-web-framework/ &&  npm i file:../roundware-web-framework/roundware-web-framework-0.11.0-alpha.30.tgz"
+	},
+	"author": "Evan Babb",
+	"license": "ISC",
+	"dependencies": {
+		"@emotion/react": "^11.4.1",
+		"@emotion/styled": "^11.3.0",
+		"@foobar404/wave": "git+https://github.com/probabble/Wave.js.git#main",
+		"@mui/icons-material": "^5.0.0",
+		"@mui/lab": "^5.0.0-alpha.89",
+		"@mui/material": "^5.8.7",
+		"@mui/styles": "^5.8.7",
+		"@mui/x-date-pickers": "^5.0.16",
+		"@react-google-maps/api": "^2.2.0",
+		"@turf/center-of-mass": "^6.5.0",
+		"@turf/destination": "^6.5.0",
+		"@turf/distance": "^6.5.0",
+		"@turf/helpers": "^6.5.0",
+		"@turf/midpoint": "^6.5.0",
+		"audio-recorder-polyfill": "^0.4.1",
+		"autosuggest-highlight": "^3.1.1",
+		"browser-id3-writer": "^4.4.0",
+		"clsx": "^1.2.1",
+		"core-js": "^3.23.3",
+		"date-fns": "^2.23.0",
+		"interweave": "^12.9.0",
+		"lodash": "^4.17.21",
+		"moment": "^2.29.4",
+		"nanoid": "^4.0.0",
+		"nosleep.js": "^0.12.0",
+		"react": "^17.0.2",
+		"react-cookie": "^4.0.3",
+		"react-cool-dimensions": "^2.0.7",
+		"react-countdown-circle-timer": "^2.5.4",
+		"react-debounce-input": "^3.2.4",
+		"react-device-detect": "^2.1.2",
+		"react-dom": "^17.0.2",
+		"react-helmet": "^6.1.0",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-share": "^4.4.0",
+		"regenerator-runtime": "^0.13.9",
+		"roundware-web-framework": "^0.12.8-alpha.14",
+		"ts-overlapping-marker-spiderfier": "^1.0.3",
+		"wavesurfer-react": "https://github.com/shreyas-jadhav/wavesurfer-react/raw/tarball/wavesurfer-react-2.0.13.tgz",
+		"wavesurfer.js": "^5.2.0"
+	},
+	"devDependencies": {
+		"@babel/preset-react": "^7.14.5",
+		"@svgr/webpack": "^6.2.1",
+		"@types/autosuggest-highlight": "^3.1.1",
+		"@types/dom-mediacapture-record": "^1.0.10",
+		"@types/gtag.js": "^0.0.10",
+		"@types/lodash": "^4.14.172",
+		"@types/node": "^16.4.13",
+		"@types/react": "^17.0.16",
+		"@types/react-dom": "^17.0.9",
+		"@types/react-helmet": "^6.1.2",
+		"@types/react-router-dom": "^5.1.8",
+		"@types/wavesurfer.js": "^5.2.2",
+		"dotenv": "^10.0.0",
+		"nth-check": "^2.0.0",
+		"react-scripts": "^5.0.1",
+		"typescript": "^4.4.3"
+	},
+	"resolutions": {
+		"@babel/preset-env": "7.13.8"
+	},
+	"overrides": {
+		"@svgr/webpack": "$@svgr/webpack"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}

@@ -1,0 +1,8 @@
+dist
+.cache
+node_modules
+.env.local
+.idea
+.parcel-cache
+.env
+build
