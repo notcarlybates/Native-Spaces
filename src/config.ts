@@ -40,8 +40,8 @@ let config: IConfig = {
 
 	map: {
 		infoWindowItems: {
-			available: ['date', 'tags', 'description', 'audio', 'photo', 'text', 'actions'],
-			actionItems: ['like', 'flag', 'show'],
+			available: ['date', 'tags', 'description', 'audio', 'photo', 'text', 'actions'], //removed 'date', added 'author'
+			actionItems: ['show'],
 		},
 
 		zoom: {
@@ -63,7 +63,7 @@ let config: IConfig = {
 	},
 
 	ui: {
-		navLogoHeight: 34,
+		navLogoHeight: 50,
 		listenSidebar: {
 			defaultOpen: false,
 			active: false,
@@ -74,7 +74,7 @@ let config: IConfig = {
 			history: {
 				active: true,
 				available: {
-					available: ['date', 'description', 'photo', 'text', 'audio', 'actions'],
+					available: ['date', 'tags', 'description', 'photo', 'text', 'audio', 'actions'],
 					actionItems: ['show'],
 				},
 				infoCardDefaultCollapsed: false,

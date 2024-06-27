@@ -51,7 +51,7 @@ const RoundwareMixerControl = () => {
 			onClick={() => {
 				if (roundware.mixer && roundware.mixer.playlist) {
 					const trackIds = Object.keys(roundware.mixer.playlist.trackIdMap || {}).map((id) => parseInt(id));
-					trackIds.forEach((audioTrackId) => roundware.mixer.skipTrack(audioTrackId));
+					trackIds.reverse().forEach((audioTrackId) => roundware.mixer.skipTrack(audioTrackId));
 					setSnackbarOpen(true);
 				}
 			}}

@@ -2,11 +2,16 @@ import { makeStyles } from '@mui/styles';
 import config from 'config';
 import { defaultTheme } from '../../styles';
 import landingHeaderImage from '../../assets/bg-about.jpg';
+import BannerImage from '../../assets/Banner-01.png';
 
 const useStyles = makeStyles(() => {
 	return {
 		topBar: {
-			backgroundColor: defaultTheme.palette.primary.main,
+			backgroundImage: BannerImage, //defaultTheme.palette.primary.main,
+			backgroundSize: 'cover',
+			backgroundPosition: 'center',
+			height: '64px', //work on this for banner
+			//backgroundColor: '#662D91',
 			// background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 100%)',
 			background: 'none',
 			boxShadow: 'none',
@@ -15,7 +20,7 @@ const useStyles = makeStyles(() => {
 			top: 'auto',
 			bottom: 0,
 			flexFlow: 'row',
-			backgroundColor: '#001010',
+			backgroundColor: '#662D91',
 			position: 'fixed',
 		},
 		actionButton: {
