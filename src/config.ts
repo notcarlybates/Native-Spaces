@@ -40,7 +40,7 @@ let config: IConfig = {
 
 	map: {
 		infoWindowItems: {
-			available: ['date', 'tags', 'description', 'audio', 'photo', 'text', 'actions'], //removed 'date', added 'author'
+			available: ['tags', 'description', 'audio', 'photo', 'text', 'actions'], //removed 'date', added 'author'
 			actionItems: ['show'],
 		},
 

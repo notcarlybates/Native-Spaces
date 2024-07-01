@@ -2,7 +2,7 @@
 
 export type IAssetCardConfig = {
 	/** available */
-	available: ('date' | 'tags' | 'description' | 'audio' | 'photo' | 'text' | 'actions' | 'id')[];
+	available: ('tags' | 'description' | 'audio' | 'photo' | 'text' | 'actions' | 'date')[];
 	/** actions */
 	actionItems: ('like' | 'flag' | 'download' | 'show')[];
 };
