@@ -10,6 +10,7 @@ import { useRoundware } from 'hooks';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
 import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
+
 type Props = {
 	link?: string;
 	open?: boolean;
@@ -21,7 +22,7 @@ const ShareDialog = (props: Props) => {
 	const { roundware } = useRoundware();
 
 	const location = useLocation();
-	const useMapContext = window.location.pathname == `/listen` ? useGoogleMap : () => null;
+	const useMapContext = window.location.pathname === `/listen` ? useGoogleMap : () => null;
 	const [includeGeo, setIncludeGeo] = useState(false);
 	const isAssetSelected = useMemo(() => params.has('aid') || params.has('eid'), [params, location]);
 	const map = useMapContext();
@@ -29,7 +30,7 @@ const ShareDialog = (props: Props) => {
 		const searchParams = new URLSearchParams();
 
 		// when on listen page need show options
-		if (window.location.pathname == '/listen') {
+		if (window.location.pathname === '/listen') {
 			// get current url
 			let link = window.location.toString();
 
@@ -54,7 +55,7 @@ const ShareDialog = (props: Props) => {
 				const splitted = link.split(`?`);
 
 				if (splitted.length > 1) {
-					// need to appen to existing
+					// need to append to existing
 					prefixCharacter = `&`;
 				}
 
@@ -68,7 +69,7 @@ const ShareDialog = (props: Props) => {
 			};
 		}
 		return {
-			link: showShare != 'true' ? showShare : window.location.toString(),
+			link: showShare !== 'true' ? showShare : window.location.toString(),
 			showOptions: false,
 		};
 	}, [includeGeo, isAssetSelected, location, roundware?.listenerLocation, location.search, map?.getZoom(), map?.getCenter(), showShare]);
@@ -82,12 +83,12 @@ const ShareDialog = (props: Props) => {
 			data: `url: ${link}`,
 		});
 	}, [showShare, link]);
+
 	return (
 		<Modal open={!!showShare} title='Share' onClose={handleCloseShare}>
-			<Stack spacing={2}>
-				{/* social icons */}
+			<Stack direction='column' justifyContent='center' spacing={2}>
 				<Stack direction='row' justifyContent='center' spacing={2}>
-					<WhatsappShareButton url={message}>
+					{/* <WhatsappShareButton url={message}>
 						<WhatsappIcon round />
 					</WhatsappShareButton>
 					<EmailShareButton url={message}>
@@ -98,7 +99,7 @@ const ShareDialog = (props: Props) => {
 					</TwitterShareButton>
 					<FacebookShareButton url={message}>
 						<FacebookIcon round />
-					</FacebookShareButton>
+					</FacebookShareButton> */}
 				</Stack>
 
 				{/* link */}
@@ -106,20 +107,18 @@ const ShareDialog = (props: Props) => {
 
 				{/* options */}
 				{showOptions && (
-					<Stack>
-						<FormControlLabel
-							control={
-								<Checkbox
-									checked={includeGeo}
-									onChange={(event) => {
-										setIncludeGeo(event.target.checked);
-									}}
-									inputProps={{ 'aria-label': 'controlled' }}
-								/>
-							}
-							label='Include Current Geo Information'
-						/>
-					</Stack>
+					<FormControlLabel
+						control={
+							<Checkbox
+								checked={includeGeo}
+								onChange={(event) => {
+									setIncludeGeo(event.target.checked);
+								}}
+								inputProps={{ 'aria-label': 'controlled' }}
+							/>
+						}
+						label='Include Current Geo Information'
+					/>
 				)}
 			</Stack>
 		</Modal>

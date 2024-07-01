@@ -40,9 +40,9 @@ const useStyles = makeStyles((theme) => {
 		},
 		landingBanner: {
 			width: 'auto',
-			height: 100,
+			height: 250,
 			[theme.breakpoints.down('sm')]: {
-				width: '70%',
+				width: '100%',
 				height: 'auto',
 			},
 		},

@@ -11,7 +11,7 @@ import Helmet from 'react-helmet';
 import { BrowserRouter, Link, NavLink, Route, Switch, useLocation } from 'react-router-dom';
 import { getMessageOnLoad } from 'utils/platformMessages';
 import favicon from '../../assets/favicon.png';
-import logoSmall from '../../assets/Medallion_QR_SAMPLE_Pavementmarking.png';
+import logoSimple from '../../assets/NativeSpaces_Medallion.png';
 import logoMinimal from '../../assets/rw-logo-minimal.png'; //top bar logo
 import { useRoundware } from '../../hooks';
 import { defaultTheme } from '../../styles';
@@ -70,7 +70,7 @@ export const App = () => {
 								</NavLink>
 							</Typography>
 							<NavLink to='/'>
-								<img src={isExtraSmallScreen ? logoMinimal : logoSmall} className={classes.navLogo} />
+								<img src={isExtraSmallScreen ? logoMinimal : logoSimple} className={classes.navLogo} />
 							</NavLink>
 						</Toolbar>
 					</AppBar>

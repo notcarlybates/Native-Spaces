@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles';
 import { useRoundware } from '../../hooks';
 import Container from '@mui/material/Container';
 
-import banner from '../../assets/rw-icon-cluster.png';
+import banner from '../../assets/Medallion_QR_SAMPLE_Pavementmarking.png';
 import { GeoListenMode } from 'roundware-web-framework';
 import useStyles from './styles';
 import config from 'config';
@@ -38,11 +38,11 @@ export const LandingPage = () => {
 						<img src={banner} className={classes.landingBanner} />
 					</Grid>
 					<Grid item sm={12}>
-						<Typography variant={'subtitle1'} className={classes.landingTagline} style={{ textAlign: 'center', height: '15vh' }}>
+						{/* <Typography variant={'subtitle1'} className={classes.landingTagline} style={{ textAlign: 'center', height: '15vh' }}>
 							Contributory Audio Augmented Reality
 							<br />
 							for Art, Education and Documentary
-						</Typography>
+						</Typography> */}
 					</Grid>
 				</Grid>
 				<Grid container justifyContent='center' style={{ height: '200px' }}>

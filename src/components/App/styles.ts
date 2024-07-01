@@ -7,11 +7,8 @@ import BannerImage from '../../assets/Banner-01.png';
 const useStyles = makeStyles(() => {
 	return {
 		topBar: {
-			backgroundImage: BannerImage, //defaultTheme.palette.primary.main,
-			backgroundSize: 'cover',
-			backgroundPosition: 'center',
-			height: '64px', //work on this for banner
-			//backgroundColor: '#662D91',
+			backgroundImage: defaultTheme.palette.primary.main,
+			backgroundColor: '#00435F',
 			// background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 100%)',
 			background: 'none',
 			boxShadow: 'none',
@@ -20,7 +17,7 @@ const useStyles = makeStyles(() => {
 			top: 'auto',
 			bottom: 0,
 			flexFlow: 'row',
-			backgroundColor: '#662D91',
+			backgroundColor: '#00435F',
 			position: 'fixed',
 		},
 		actionButton: {
@@ -41,7 +38,7 @@ const useStyles = makeStyles(() => {
 			textDecoration: 'none',
 		},
 		navLogo: {
-			height: config.ui.navLogoHeight || 34,
+			height: config.ui.navLogoHeight || 50,
 		},
 	};
 });
