@@ -75,6 +75,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 			case 'tags':
 				return (
 					<div key={elementName}>
+						<Typography variant='body2'>Speaker:</Typography>
 						{showDividerIfEligible()}
 						<TagsDisplay tagIds={Array.isArray(asset.tag_ids) ? asset.tag_ids : []} />
 					</div>

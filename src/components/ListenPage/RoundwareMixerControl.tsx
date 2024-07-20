@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
@@ -47,19 +46,6 @@ const RoundwareMixerControl = () => {
 	return (
 		<>
 			<Button
-			disabled={isPlaying ? false : true}
-			onClick={() => {
-				if (roundware.mixer && roundware.mixer.playlist) {
-					const trackIds = Object.keys(roundware.mixer.playlist.trackIdMap || {}).map((id) => parseInt(id));
-					trackIds.reverse().forEach((audioTrackId) => roundware.mixer.skipTrack(audioTrackId));
-					setSnackbarOpen(true);
-				}
-			}}
-		>
-				<SkipPreviousIcon />
-			</Button>
-
-			<Button
 				onClick={() => {
 					if (!roundware.mixer || !roundware.mixer?.playlist) {
 						roundware.activateMixer({ geoListenMode: GeoListenMode.MANUAL }).then(() => {
@@ -84,7 +70,6 @@ const RoundwareMixerControl = () => {
 			>
 				{roundware && roundware.mixer && roundware.mixer.playing ? <PauseCircleOutlineIcon fontSize='large' /> : <PlayCircleOutlineIcon fontSize='large' />}
 			</Button>
-
 			<Button
 				disabled={isPlaying ? false : true}
 				onClick={() => {
