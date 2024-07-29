@@ -15,6 +15,7 @@ const OverlappingMarkerSpiderfierComponent = (props: { children: (props: Overlap
 	}
 	if (!spiderfier) {
 		const oms_obj = new OverlappingMarkerSpiderfier(map, {
+			nearbyDistance: 10,
 			markersWontMove: true,
 			markersWontHide: true,
 			basicFormatEvents: true,
@@ -96,10 +97,10 @@ const AssetLayer = ({ updateLocation }: { updateLocation: (newLocation: Coordina
 
 	return (
 		<MarkerClusterer
-			maxZoom={90}//{config.map.zoom.high - 1}
+			maxZoom= {config.map.zoom.high - 1}
 			onClick={handleClick}
 			onLoad={setMarkerClusterer}
-			minimumClusterSize={300}
+			minimumClusterSize={3}
 			calculator={(markers, numStyles) => {
 				// Most of this implementation is copied from the default calculator for
 				// React google maps. Change the `styles` property to configure how

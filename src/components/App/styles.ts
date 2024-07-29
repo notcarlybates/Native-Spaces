@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 import config from 'config';
 import { defaultTheme } from '../../styles';
-import landingHeaderImage from '../../assets/bg-about.jpg';
+import landingHeaderImage from '../../assets/salem2.png';
 import BannerImage from '../../assets/Banner-01.png';
 
 const useStyles = makeStyles(() => {

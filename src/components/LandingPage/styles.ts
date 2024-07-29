@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import landingHeaderImage from '../../assets/bg-about.jpg';
+import landingHeaderImage from '../../assets/salem2.png';
 const useStyles = makeStyles((theme) => {
 	return {
 		topBar: {
