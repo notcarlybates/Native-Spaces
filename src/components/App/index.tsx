@@ -11,8 +11,8 @@ import Helmet from 'react-helmet';
 import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
 import { getMessageOnLoad } from 'utils/platformMessages';
 import favicon from '../../assets/favicon.png';
-import logoSmall from '../../assets/rw-full-logo-wb.png';
-import logoMinimal from '../../assets/rw-logo-minimal.png';
+import logoSimple from '../../assets/NativeSpaces_Medallion.png';
+import logoMinimal from '../../assets/rw-logo-minimal.png'; //top bar logo
 import { useRoundware } from '../../hooks';
 import { defaultTheme } from '../../styles';
 import DebugPage from '../DebugPage';
@@ -65,11 +65,11 @@ export const App = () => {
 						<Toolbar className={classes.topBar}>
 							<Typography variant='h6' className={classes.title}>
 								<NavLink to='/' className={classes.title}>
-									{roundware.project ? roundware.project.projectName : ''}
+									{roundware.project ? roundware.project.projectName : 'Native Spaces'}
 								</NavLink>
 							</Typography>
 							<NavLink to='/'>
-								<img src={isExtraSmallScreen ? logoMinimal : logoSmall} className={classes.navLogo} />
+								<img src={isExtraSmallScreen ? logoMinimal : logoSimple} className={classes.navLogo} />
 							</NavLink>
 						</Toolbar>
 					</AppBar>

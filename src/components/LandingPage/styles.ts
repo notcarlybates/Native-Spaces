@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import landingHeaderImage from '../../assets/bg-about.jpg';
+import landingHeaderImage from '../../assets/salem2.png';
 const useStyles = makeStyles((theme) => {
 	return {
 		topBar: {
@@ -40,9 +40,9 @@ const useStyles = makeStyles((theme) => {
 		},
 		landingBanner: {
 			width: 'auto',
-			height: 100,
+			height: 250,
 			[theme.breakpoints.down('sm')]: {
-				width: '70%',
+				width: '100%',
 				height: 'auto',
 			},
 		},
