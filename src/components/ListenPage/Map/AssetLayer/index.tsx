@@ -34,20 +34,30 @@ const AssetLayer = ({ updateLocation }: { updateLocation: (newLocation: Coordina
 	const [markerClusterer, setMarkerClusterer] = useState<Clusterer | null>(null);
 
 	// when the selected asset changes, pan to it
-	useEffect(() => {
-		if (!selectedAsset || !map || typeof selectedAsset.latitude !== 'number' || typeof selectedAsset.longitude !== 'number') {
-			return;
-		}
-		const center = {
-			lat: selectedAsset.latitude,
-			lng: selectedAsset.longitude,
-		};
+useEffect(() => {
+    if (!selectedAsset || !map || typeof selectedAsset.latitude !== 'number' || typeof selectedAsset.longitude !== 'number') {
+        return;
+    }
 
-		map.panTo(center);
-		map.setZoom(config.map.zoom.high);
-		roundware.updateLocation({ latitude: selectedAsset.latitude, longitude: selectedAsset.longitude });
-		console.log(selectedAsset);
-	}, [selectedAsset]);
+    const center = {
+        lat: selectedAsset.latitude,
+        lng: selectedAsset.longitude,
+    };
+
+    // Pan to the location
+    map.panTo(center);
+
+    // Listener to set the zoom after the panning is complete
+    const idleListener = map.addListener('idle', () => {
+        map.setZoom(config.map.zoom.high);
+
+        // Remove the listener after the initial pan and zoom
+        google.maps.event.removeListener(idleListener);
+    });
+
+    roundware.updateLocation({ latitude: selectedAsset.latitude, longitude: selectedAsset.longitude });
+    console.log(selectedAsset);
+}, [selectedAsset, map]);
 
 	if (!map) {
 		return null;
