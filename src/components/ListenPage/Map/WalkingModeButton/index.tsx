@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => {
 			zIndex: 100,
 			left: 20,
 			bottom: 68,
-			backgroundColor: '#cccccc',
+			backgroundColor: '#2E7CA8',
 			'&:hover': {
-				backgroundColor: '#aaaaaa',
+				backgroundColor: '#00324A',
 			},
 		},
 		hidden: {

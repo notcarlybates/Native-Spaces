@@ -1,12 +1,14 @@
 import { makeStyles } from '@mui/styles';
 import config from 'config';
 import { defaultTheme } from '../../styles';
-import landingHeaderImage from '../../assets/bg-about.jpg';
+import landingHeaderImage from '../../assets/salem2.png';
+import BannerImage from '../../assets/Banner-01.png';
 
 const useStyles = makeStyles(() => {
 	return {
 		topBar: {
-			backgroundColor: defaultTheme.palette.primary.main,
+			backgroundImage: defaultTheme.palette.primary.main,
+			backgroundColor: '#00435F',
 			// background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 100%)',
 			background: 'none',
 			boxShadow: 'none',
@@ -15,7 +17,7 @@ const useStyles = makeStyles(() => {
 			top: 'auto',
 			bottom: 0,
 			flexFlow: 'row',
-			backgroundColor: '#001010',
+			backgroundColor: '#00435F',
 			position: 'fixed',
 		},
 		actionButton: {
@@ -36,7 +38,7 @@ const useStyles = makeStyles(() => {
 			textDecoration: 'none',
 		},
 		navLogo: {
-			height: config.ui.navLogoHeight || 34,
+			height: config.ui.navLogoHeight || 50,
 		},
 	};
 });

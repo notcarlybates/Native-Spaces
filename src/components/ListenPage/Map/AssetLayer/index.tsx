@@ -96,7 +96,7 @@ const AssetLayer = ({ updateLocation }: { updateLocation: (newLocation: Coordina
 
 	return (
 		<MarkerClusterer
-			maxZoom={config.map.zoom.high - 1}
+			maxZoom={config.map.zoom.high - 1} //spiderFier
 			onClick={handleClick}
 			onLoad={setMarkerClusterer}
 			minimumClusterSize={3}

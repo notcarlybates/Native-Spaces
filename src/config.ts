@@ -11,10 +11,10 @@ let config: IConfig = {
 	project: {
 		apiUrl: 'https://dev.roundware.com/api/2',
 		serverUrl: 'https://dev.roundware.com/',
-		id: 1,
+		id: 44,
 		initialLocation: {
-			latitude: 21.1458,
-			longitude: 79.0882,
+			latitude: 42.5197,
+			longitude: 70.8955,
 		},
 	},
 
@@ -43,8 +43,8 @@ let config: IConfig = {
 
 	map: {
 		infoWindowItems: {
-			available: ['date', 'tags', 'description', 'audio', 'photo', 'text', 'actions'],
-			actionItems: ['like', 'flag', 'show'],
+			available: ['tags', 'description', 'audio', 'photo', 'text', 'actions'],
+			actionItems: ['show'],
 		},
 
 		zoom: {
@@ -69,7 +69,7 @@ let config: IConfig = {
 	},
 
 	ui: {
-		navLogoHeight: 34,
+		navLogoHeight: 50,
 		listenSidebar: {
 			defaultOpen: false,
 			active: true,
@@ -80,7 +80,7 @@ let config: IConfig = {
 			history: {
 				active: true,
 				available: {
-					available: ['date', 'description', 'photo', 'text', 'audio', 'actions'],
+					available: ['date', 'tags', 'description', 'photo', 'text', 'audio', 'actions'],
 					actionItems: ['show'],
 				},
 				infoCardDefaultCollapsed: false,

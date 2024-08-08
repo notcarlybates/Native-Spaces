@@ -1,4 +1,4 @@
-import { Close, ViewSidebar } from '@mui/icons-material';
+import { Close, History } from '@mui/icons-material';
 import { Box, IconButton, Stack, Tab, Tabs, Theme, useMediaQuery } from '@mui/material';
 
 import Drawer from '@mui/material/Drawer';
@@ -32,7 +32,7 @@ const ListenDrawer = () => {
 					toggle();
 				}}
 			>
-				<ViewSidebar fontSize='large' />
+				<History fontSize='large' />
 			</IconButton>
 			<Drawer
 				anchor={'right'}
