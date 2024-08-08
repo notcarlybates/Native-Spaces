@@ -15,6 +15,7 @@ const OverlappingMarkerSpiderfierComponent = (props: { children: (props: Overlap
 	}
 	if (!spiderfier) {
 		const oms_obj = new OverlappingMarkerSpiderfier(map, {
+			nearbyDistance: 1,
 			markersWontMove: true,
 			markersWontHide: true,
 			basicFormatEvents: true,
