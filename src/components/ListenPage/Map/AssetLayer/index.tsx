@@ -96,9 +96,16 @@ useEffect(() => {
 		wait_for_full_page().then(recluster);
 	}, [markerClusterer && markerClusterer.ready, assetPage]);
 
-	const options = {
-		imagePath: 'https://github.com/googlemaps/v3-utility-library/raw/master/packages/markerclustererplus/images/m',
-	};
+	// const options = {
+	// 	styles: [
+	// 			{ url: './NS_Audiozone_XS.png' },  // Custom PNG for small clusters
+	// 			{ url: './NS_Audiozone_S.png' },
+	// 			{ url: './NS_Audiozone_M.png' },  // Custom PNG for large clusters
+	// 			{ url: './NS_Audiozone_L.png' },  // Custom PNG for small clusters
+	// 			{ url: './NS_Audiozone_XL.png' }, // Custom PNG for medium clusters
+	// 			{ url: './NS_Audiozone_XXL.png' },  // Custom PNG for large clusters
+	// 		],
+	// };
 
 	const handleClick = (cluster: any) => {
 		updateLocation({ latitude: cluster.center.lat(), longitude: cluster.center.lng() });
@@ -145,7 +152,7 @@ useEffect(() => {
 					title: title,
 				};
 			}}
-			options={options}
+			//options={options}
 			children={markers}
 		/>
 	);

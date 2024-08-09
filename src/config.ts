@@ -13,8 +13,8 @@ let config: IConfig = {
 		serverUrl: 'https://prod.roundware.com/',
 		id: 44,
 		initialLocation: {
-			latitude: 42.5197,
-			longitude: 70.8955,
+			latitude: 44.9429,
+			longitude: 123.0351,
 		},
 	},
 

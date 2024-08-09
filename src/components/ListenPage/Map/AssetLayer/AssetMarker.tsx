@@ -4,7 +4,7 @@ import React, { useEffect, useMemo } from 'react';
 import { IAssetData } from 'roundware-web-framework/dist/types/asset';
 import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
 import marker2 from '../../../../assets/marker-secondary.svg';
-import marker from '../../../../assets/marker.svg';
+import marker from '../../../../assets/placemark_singlegradient.svg';
 import { useRoundware } from '../../../../hooks';
 import { AssetInfoWindowInner } from './AssetInfoWindow';
 import finalConfig from 'config';
