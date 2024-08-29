@@ -12,8 +12,8 @@ let config: IConfig = {
 		serverUrl: 'https://prod.roundware.com/',
 		id: 44,
 		initialLocation: {
-			latitude: 50,
-			longitude: 27,
+			latitude: 40,
+			longitude: 23,
 		},
 	},
 
@@ -50,7 +50,7 @@ let config: IConfig = {
 			walking: 22,
 		},
 		speakerDisplay: 'polygons',
-		speakerPolygonColors: ['#044389', '#FCFF4B', '#FFAD05', '#7CAFC4', '#63A375', '#EF27A6'],
+		speakerPolygonColors: ['#00435F'],
 		useListenMapBounds: true,
 		showBoundsMarkers: false,
 		bounds: 'none',
@@ -74,7 +74,7 @@ let config: IConfig = {
 			history: {
 				active: true,
 				available: {
-					available: ['date', 'tags', 'description', 'photo', 'text', 'audio', 'actions'],
+					available: ['tags', 'description', 'photo', 'text', 'audio', 'actions'],
 					actionItems: ['show'],
 				},
 				infoCardDefaultCollapsed: false,
