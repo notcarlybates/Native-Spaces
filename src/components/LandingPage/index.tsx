@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles';
 import { useRoundware } from '../../hooks';
 import Container from '@mui/material/Container';
 
-import banner from '../../assets/Medallion_QR_SAMPLE_Pavementmarking.png';
+import banner from '../../assets/Medallion_Splashpage.png';
 import { GeoListenMode } from 'roundware-web-framework';
 import useStyles from './styles';
 import config from 'config';

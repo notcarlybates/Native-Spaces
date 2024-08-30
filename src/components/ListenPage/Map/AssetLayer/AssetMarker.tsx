@@ -3,8 +3,8 @@ import { Clusterer } from '@react-google-maps/marker-clusterer';
 import React, { useEffect, useMemo } from 'react';
 import { IAssetData } from 'roundware-web-framework/dist/types/asset';
 import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
-import marker2 from '../../../../assets/marker-secondary.svg';
-import marker from '../../../../assets/marker.svg';
+import marker2 from '../../../../assets/placemark_singlegradient_selected.svg';
+import marker from '../../../../assets/placemark_singlegradient.svg';
 import { useRoundware } from '../../../../hooks';
 import { AssetInfoWindowInner } from './AssetInfoWindow';
 const AssetInfoWindow = ({ asset }: { asset: IAssetData }) => {
@@ -29,7 +29,7 @@ const AssetMarker = ({ asset, clusterer, oms }: AssetMarkerProps) => {
 
 	const iconPin = {
 		url: isPlaying ? marker2 : marker,
-		scaledSize: new google.maps.Size(isPlaying ? 23 : 20, isPlaying ? 23 : 20),
+		scaledSize: new google.maps.Size(isPlaying ? 30 : 28, isPlaying ? 30 : 28),
 		fillOpacity: 1,
 	};
 	const zIndex = isPlaying ? 101 : 100;

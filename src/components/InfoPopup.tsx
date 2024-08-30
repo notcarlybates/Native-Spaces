@@ -43,7 +43,7 @@ const InfoPopup = () => {
 
     return (
         <div>
-            <Button onClick={handleClickOpen}>About This Project</Button>
+            <Button onClick={handleClickOpen}>INFO</Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby='alert-dialog-title' aria-describedby='alert-dialog-description'>
                 <DialogTitle id='alert-dialog-title'>
                     {showFullCredits && (
@@ -51,7 +51,7 @@ const InfoPopup = () => {
                             <ArrowBackIcon />
                         </IconButton>
                     )}
-                    {showFullCredits ? 'Full Credits' : 'About This Project'}
+                    {showFullCredits ? 'Full Credits' : 'info'}
                 </DialogTitle>
                 <DialogContent dividers>
                     {showFullCredits ? (
