@@ -11,8 +11,8 @@ import Helmet from 'react-helmet';
 import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
 import { getMessageOnLoad } from 'utils/platformMessages';
 import favicon from '../../assets/favicon.png';
-import logoSimple from '../../assets/NativeSpaces_Medallion.png';
-import logoMinimal from '../../assets/rw-logo-minimal.png'; //top bar logo
+import logoSimple from 'src/assets/Medallion_Banner.png'
+import logoMinimal from 'src/assets/rw-logo-minimal.png';
 import { useRoundware } from '../../hooks';
 import { defaultTheme } from '../../styles';
 import DebugPage from '../DebugPage';

@@ -41,7 +41,7 @@ const InfoPopup = () => {
 
     return (
         <div>
-            <Button onClick={handleClickOpen}><b>About This Project</b></Button>
+            <Button onClick={handleClickOpen}><b>ABOUT</b></Button>
             <Dialog
                 open={open}
                 onClose={handleClose}

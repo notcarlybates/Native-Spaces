@@ -145,22 +145,38 @@ export const RoundwareMapStyle: google.maps.MapTypeStyle[] = [
   {
     featureType: "road.highway",
     elementType: "geometry",
-    stylers: [{ color: "#f8c967" }],
+    //stylers: [{ color: "#f8c967" }],
+    stylers: [
+      		{
+      			visibility: 'off',
+      		}],
   },
   {
     featureType: "road.highway",
     elementType: "geometry.stroke",
-    stylers: [{ color: "#e9bc62" }],
+    //stylers: [{ color: "#e9bc62" }],
+    stylers: [
+      {
+        visibility: 'off',
+      }],
   },
   {
     featureType: "road.highway.controlled_access",
     elementType: "geometry",
-    stylers: [{ color: "#e98d58" }],
+    //stylers: [{ color: "#e98d58" }],
+    stylers: [
+      {
+        visibility: 'off',
+      }],
   },
   {
     featureType: "road.highway.controlled_access",
     elementType: "geometry.stroke",
-    stylers: [{ color: "#db8555" }],
+    //stylers: [{ color: "#db8555" }],
+    stylers: [
+      {
+        visibility: 'off',
+      }],
   },
   {
     featureType: "road.local",
@@ -185,11 +201,11 @@ export const RoundwareMapStyle: google.maps.MapTypeStyle[] = [
   {
     featureType: "water",
     elementType: "geometry.fill",
-    stylers: [{ color: "#b9d3c2" }],
+    stylers: [{ color: "#a4c7db" }],
   },
   {
     featureType: "water",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#92998d" }],
+    stylers: [{ color: "#7dbee3" }],
   },
 ]

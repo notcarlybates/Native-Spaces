@@ -56,7 +56,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 	const infoItemsResolver = (elementName: string, index: number, list: string[]) => {
 		function showDividerIfEligible(): React.ReactNode {
 			const prev = list[index - 1];
-			if (['description', 'text', 'tags', 'date'].includes(prev)) {
+			if (['description', 'text', 'tags'].includes(prev)) {
 				return <Divider style={{ marginTop: 5, marginBottom: 5 }} />;
 			}
 			return null;
@@ -64,13 +64,13 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 		const description = asset.description;
 
 		switch (elementName) {
-			case 'date':
-				return (
-					<div key={elementName}>
-						{showDividerIfEligible()}
-						<Typography variant='body2'>{moment(asset.created).format('LLL')}</Typography>
-					</div>
-				);
+			// case 'date':
+			// 	return (
+			// 		// <div key={elementName}>
+			// 		// 	{showDividerIfEligible()}
+			// 		// 	<Typography variant='body2'>{moment(asset.created).format('LLL')}</Typography>
+			// 		// </div>
+			// 	);
 
 			case 'tags':
 				return (
@@ -86,7 +86,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 						<div key={elementName} style={{ marginTop: 5 }}>
 							{/* Example of asset description - eid=6328 */}
 							{showDividerIfEligible()}
-							<Typography variant='body2'>Description:</Typography>
+							<Typography variant='body2'>Transcript:</Typography>
 							<Interweave content={description.length > 100 ? description.substr(0, 100) + '...' : description} />
 							{description.length > 100 && (
 								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton}>

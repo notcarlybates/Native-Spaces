@@ -31,7 +31,7 @@ const AssetMarker = ({ asset, clusterer, oms }: AssetMarkerProps) => {
 
 	const iconPin = {
 		url: isPlaying ? marker2 : marker,
-		scaledSize: new google.maps.Size(isPlaying ? 23 : 20, isPlaying ? 23 : 20),
+		scaledSize: new google.maps.Size(isPlaying ? 29 : 27, isPlaying ? 29 : 27),
 		fillOpacity: 1,
 	};
 	const zIndex = isPlaying ? 101 : 100;
