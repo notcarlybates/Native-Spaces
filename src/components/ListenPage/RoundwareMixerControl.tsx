@@ -72,11 +72,11 @@ const RoundwareMixerControl = () => {
 
 	return (
 		<>
-			{finalConfig.ui.listenTransport.includeSkipBackButton && (
+			{/* {finalConfig.ui.listenTransport.includeSkipBackButton && (
 				<IconButton onClick={() => seek(-(finalConfig.listen.skipDuration || 5))} disabled={isPlaying ? false : true}>
 					<ReplayIcon />
 				</IconButton>
-			)}
+			)} */}
 
 			<Button
 				onClick={() => {
@@ -103,7 +103,7 @@ const RoundwareMixerControl = () => {
 			>
 				{roundware && roundware.mixer && roundware.mixer.playing ? <PauseCircleOutlineIcon fontSize='large' /> : <PlayCircleOutlineIcon fontSize='large' />}
 			</Button>
-			{finalConfig.ui.listenTransport.includeSkipForwardButton && (
+			{/* {finalConfig.ui.listenTransport.includeSkipForwardButton && (
 				<IconButton disabled={isPlaying ? false : true} onClick={() => seek(finalConfig.listen.skipDuration || 5)}>
 					<ReplayIcon
 						sx={{
@@ -112,7 +112,7 @@ const RoundwareMixerControl = () => {
 						}}
 					/>
 				</IconButton>
-			)}
+			)} */}
 			<Button
 				disabled={isPlaying ? false : true}
 				onClick={() => {
@@ -125,7 +125,7 @@ const RoundwareMixerControl = () => {
 					}
 				}}
 			>
-				<SkipNextIcon />
+				<SkipNextIcon fontSize="large"/>
 			</Button>
 
 			<Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }} style={{ marginBottom: 50 }}>

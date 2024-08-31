@@ -40,6 +40,15 @@ const useStyles = makeStyles(() => {
 		navLogo: {
 			height: config.ui.navLogoHeight || 50,
 		},
+			overlappingImage: {
+			position: 'absolute',
+			top: '64px', // Adjust this based on your top bar height
+			left: '0',
+			transform: 'translateY(-50%)',
+			zIndex: 2, // Ensure it overlaps the top bar and main content
+			width: '100px', // Adjust size as needed
+			height: '100px', // Adjust size as needed
+		},
 	};
 });
 export default useStyles;

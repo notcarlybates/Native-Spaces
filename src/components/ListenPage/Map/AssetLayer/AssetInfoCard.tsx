@@ -171,7 +171,7 @@ const TextDisplay = ({ textUrl }: { textUrl: string }) => {
 		<div>
 			<Interweave content={storedText.length > 100 ? storedText.substr(0, 100) + '...' : storedText} />
 			{storedText.length > 100 && (
-				<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton}>
+				<Button onClick={() => setShowDialog(true)} size='small' color='secondary' className={classes.readMoreButton}>
 					Read more
 				</Button>
 			)}
