@@ -65,7 +65,7 @@ let config: IConfig = {
 		},
 		assetTypeDisplay: ['audio', 'photo', 'text'],
 		
-		assetDisplay: 'circle'
+		assetDisplay: 'pin'
 	},
 
 	ui: {

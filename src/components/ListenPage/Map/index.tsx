@@ -129,7 +129,7 @@ const RoundwareMap = (props: RoundwareMapProps) => {
 						<AssetLayer updateLocation={updateListenerLocation} />
 						<RangeCircleOverlay updateLocation={updateListenerLocation} />
 						{map && roundware.mixer?.playlist && <WalkingModeButton />}
-						{config.features.speakerToggleIds?.length > 0 && <SpeakerToggle />}
+						{/* {config.features.speakerToggleIds?.length > 0 && <SpeakerToggle />} */}
 						{config.map.speakerDisplay == 'polygons' && <SpeakerPolygons />}
 						{config.map.speakerDisplay == 'images' && <SpeakerImages />}
 						<SpeakerLoadingIndicator />

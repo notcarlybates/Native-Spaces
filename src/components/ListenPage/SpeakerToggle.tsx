@@ -46,7 +46,7 @@ const SpeakerToggle = () => {
 					}}
 					elevation={10}
 				>
-					{/* <Stack spacing={1}>
+					<Stack spacing={1}>
 						<Typography fontWeight={'bold'} variant={'body1'}>
 							Speakers
 						</Typography>
@@ -69,7 +69,7 @@ const SpeakerToggle = () => {
 								});
 							}}
 						/>
-					</Stack> */}
+					</Stack>
 				</Paper>
 			</ThemeProvider>
 		</CustomMapControl>
