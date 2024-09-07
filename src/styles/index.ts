@@ -7,6 +7,9 @@ export const defaultTheme = createTheme({
 		primary: {
 			main: '#719EE3',
 		},
+		secondary: {
+			main: "#ffffff",
+		},
 	},
 	components: {
 		MuiButton: {
@@ -14,6 +17,9 @@ export const defaultTheme = createTheme({
 				textPrimary: {
 					color: '#ffffff !important',
 				},
+				textSecondary: {
+					color: '#ffffff',
+				}
 			},
 		},
 	},

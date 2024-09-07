@@ -98,7 +98,7 @@ const ListenHistory = () => {
 					);
 				})
 			) : (
-				<Typography variant='subtitle2' color='text.secondary'>
+				<Typography variant='subtitle2' color='#ffffff'>
 					You currently have no listening history. As you listen to recordings on the map, they will be displayed here for further discovery.
 				</Typography>
 			)}

@@ -11,7 +11,7 @@ import Helmet from 'react-helmet';
 import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
 import { getMessageOnLoad } from 'utils/platformMessages';
 import favicon from '../../assets/favicon.png';
-import logoSimple from '../../../src/assets/Medallion_Banner.png'
+import logoSimple from '../../../src/assets/Medallion_Banner.png';
 import logoMinimal from '../../../src/assets/Medallion_Splashpage.png';
 import { useRoundware } from '../../hooks';
 import { defaultTheme } from '../../styles';
@@ -31,89 +31,92 @@ import useStyles from './styles';
 import ErrorBoundary from 'components/elements/ErrorBoundary';
 
 export const App = () => {
-	const [theme] = useState(defaultTheme);
-	const classes = useStyles();
-	const { roundware } = useRoundware();
-	const isExtraSmallScreen = useMediaQuery<boolean>(theme.breakpoints.down('xs'));
+  const [theme] = useState(defaultTheme);
+  const classes = useStyles();
+  const { roundware } = useRoundware();
+  const isExtraSmallScreen = useMediaQuery<boolean>(theme.breakpoints.down('xs'));
 
-	return (
-		<ErrorBoundary>
-			<BrowserRouter getUserConfirmation={(message, callback) => UserConfirmation(message, callback)}>
-				<CssBaseline />
+  // Determine which logo to use
+  const logoSrc = isExtraSmallScreen ? logoMinimal : logoSimple;
 
-				<Helmet>
-					<meta charSet='utf-8' />
-					<title>{roundware.project ? roundware.project.projectName : ''}</title>
-					<link rel='icon' type='image/png' href={favicon} sizes='16x16' />
-					<meta name='theme-color' content={theme.palette.primary.main} />
+  return (
+    <ErrorBoundary>
+      <BrowserRouter getUserConfirmation={(message, callback) => UserConfirmation(message, callback)}>
+        <CssBaseline />
 
-					<script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`}></script>
-					<script>
-						{`
-						window.dataLayer = window.dataLayer || [];
+        <Helmet>
+          <meta charSet='utf-8' />
+          <title>{roundware.project ? roundware.project.projectName : ''}</title>
+          <link rel='icon' type='image/png' href={favicon} sizes='16x16' />
+          <meta name='theme-color' content={theme.palette.primary.main} />
 
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`}></script>
+          <script>
+            {`
+            window.dataLayer = window.dataLayer || [];
 
-		  gtag('config', '${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}');
-		  `}
-					</script>
-				</Helmet>
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-				<DrawerSensitiveWrapper>
-					<AppBar className={classes.topBar} position='fixed'>
-						<Toolbar className={classes.topBar}>
-							<Typography variant='h6' className={classes.title}>
-								<NavLink to='/' className={classes.title}>
-									{roundware.project ? roundware.project.projectName : 'Native Spaces'}
-								</NavLink>
-							</Typography>
-							<NavLink to='/'>
-								<img src={isExtraSmallScreen ? logoMinimal : logoSimple} className={classes.navLogo} />
-							</NavLink>
-						</Toolbar>
-					</AppBar>
-					<PlatformMessage getMessage={getMessageOnLoad} />
-					<Toolbar />
-					<div className={classes.appContainer}>
-						<Switch>
-							<Route exact path='/' component={LandingPage} />
-							<Route path='/listen' component={ListenPage} />
-							<Route path='/speak' component={SpeakPage} />
-							<Route path='/debug' component={DebugPage} />
-						</Switch>
-					</div>
-					<AppBar position='sticky' className={classes.bottomBar}>
-						<Toolbar style={{ width: '100%', justifyContent: 'space-between' }}>
-							<Stack spacing={1} direction='row'>
-								<ShareButton />
-								<Route path='/listen'>
-									{roundware?.project?.data?.speak_enabled && (
-										<Link to={`/speak`}>
-											<SpeakButton />
-										</Link>
-									)}
-								</Route>
-							</Stack>
-							<div>
-								<Route path='/listen'>
-									<ListenDrawer />
-									<RoundwareMixerControl />
-								</Route>
-							</div>
+            gtag('config', '${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}');
+            `}
+          </script>
+        </Helmet>
 
-							{config.debugMode === true ? <div style={{ color: 'white' }}>mixer: {roundware.mixer && JSON.stringify(roundware.mixer.mixParams)}</div> : null}
-							<div>
-								<InfoPopup />
-							</div>
-						</Toolbar>
-						<Switch>
-							<Route path='/listen' exact component={() => <React.Fragment></React.Fragment>} />
-							<Route path='/' component={ShareDialog} />
-						</Switch>
-					</AppBar>
-				</DrawerSensitiveWrapper>
-			</BrowserRouter>
-		</ErrorBoundary>
-	);
+        <DrawerSensitiveWrapper>
+          <AppBar className={classes.topBar} position='fixed'>
+            <Toolbar className={classes.topBar}>
+              <NavLink to='/'>
+                <img src={logoSrc} className={classes.navLogo} />  {/* Apply the updated class */}
+              </NavLink>
+              <Typography variant='h6' className={classes.title}>
+                <NavLink to='/' className={classes.title}>
+                  {roundware.project ? roundware.project.projectName : 'Native Spaces'}
+                </NavLink>
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <PlatformMessage getMessage={getMessageOnLoad} />
+          <Toolbar />
+          <div className={classes.appContainer}>
+            <Switch>
+              <Route exact path='/' component={LandingPage} />
+              <Route path='/listen' component={ListenPage} />
+              <Route path='/speak' component={SpeakPage} />
+              <Route path='/debug' component={DebugPage} />
+            </Switch>
+          </div>
+          <AppBar position='sticky' className={classes.bottomBar}>
+            <Toolbar style={{ width: '100%', justifyContent: 'space-between' }}>
+              <Stack spacing={1} direction='row'>
+                <ShareButton />
+                <Route path='/listen'>
+                  {roundware?.project?.data?.speak_enabled && (
+                    <Link to={`/speak`}>
+                      <SpeakButton />
+                    </Link>
+                  )}
+                </Route>
+              </Stack>
+              <div>
+                <Route path='/listen'>
+                  <ListenDrawer />
+                  <RoundwareMixerControl />
+                </Route>
+              </div>
+
+              {config.debugMode === true ? <div style={{ color: 'white' }}>mixer: {roundware.mixer && JSON.stringify(roundware.mixer.mixParams)}</div> : null}
+              <div>
+                <InfoPopup />
+              </div>
+            </Toolbar>
+            <Switch>
+              <Route path='/listen' exact component={() => <React.Fragment></React.Fragment>} />
+              <Route path='/' component={ShareDialog} />
+            </Switch>
+          </AppBar>
+        </DrawerSensitiveWrapper>
+      </BrowserRouter>
+    </ErrorBoundary>
+  );
 };

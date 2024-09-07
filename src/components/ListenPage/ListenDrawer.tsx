@@ -35,56 +35,60 @@ const ListenDrawer = () => {
 				<History fontSize='large' />
 			</IconButton>
 			<Drawer
-				anchor={'right'}
-				open={open}
-				onClose={(e) => {
+	anchor={'right'}
+	open={open}
+	onClose={(e) => {
+		setOpen(false);
+	}}
+	variant={isDesktop ? 'persistent' : 'temporary'}
+	sx={{
+		width: 350,
+		flexShrink: 0,
+		'& .MuiDrawer-paper': {
+			width: 350,
+			boxSizing: 'border-box',
+		},
+		position: 'absolute',
+	}}
+>
+	<Box
+		sx={{
+			backgroundColor: '#00324A', // Adjust main body color
+			height: '100%', // Ensures the background color covers the entire drawer
+		}}
+	>
+		<Stack
+			position='sticky'
+			top={0}
+			sx={{
+				backgroundColor: '#00324A', // Header color 
+			}}
+			direction='row'
+			p={1}
+			pb={0}
+			spacing={1}
+			alignItems='center'
+		>
+			<IconButton
+				sx={{
+					mt: 1,
+				}}
+				onClick={(e) => {
+					e.stopPropagation();
 					setOpen(false);
 				}}
-				variant={isDesktop ? 'persistent' : 'temporary'}
-				sx={{
-					width: 350,
-					flexShrink: 0,
-					'& .MuiDrawer-paper': {
-						width: 350,
-						boxSizing: 'border-box',
-					},
-					position: 'absolute',
-				}}
 			>
-				<Box>
-					<Stack
-						position='sticky'
-						top={0}
-						sx={{
-							backgroundColor: 'background.paper',
-						}}
-						direction='row'
-						p={1}
-						pb={0}
-						spacing={1}
-						alignItems='center'
-					>
-						<IconButton
-							sx={{
-								mt: 1,
-							}}
-							onClick={(e) => {
-								e.stopPropagation();
-								setOpen(false);
-							}}
-						>
-							<Close />
-						</IconButton>
-						<Tabs value={selectedTab} onChange={(e, v) => setSelectedTab(v)} variant='fullWidth'>
-							{config.ui.listenSidebar.filter.active && <Tab label='Filters' value='filters' />}
-							{config.ui.listenSidebar.history.active && <Tab label='History' value='history' />}
-						</Tabs>
-					</Stack>
+				<Close />
+			</IconButton>
+			<Tabs value={selectedTab} onChange={(e, v) => setSelectedTab(v)} variant='fullWidth'>
+				{config.ui.listenSidebar.history.active && <Tab label='History' value='history' />}
+			</Tabs>
+		</Stack>
 
-					{selectedTab === 'filters' && <Filters />}
-					{selectedTab === 'history' && <ListenHistory />}
-				</Box>
-			</Drawer>
+		{selectedTab === 'history' && <ListenHistory />}
+	</Box>
+</Drawer>
+
 		</React.Fragment>
 	);
 };
