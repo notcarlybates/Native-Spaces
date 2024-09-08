@@ -7,6 +7,14 @@ import { IAssetData } from 'roundware-web-framework/dist/types/asset';
 import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
 import { useRoundware } from '../../../../hooks';
 import AssetMarker from './AssetMarker';
+
+import clusterXS from '../../../../assets/NS_Audiozone_XS.png';
+import clusterS from '../../../../assets/NS_Audiozon_S.png';
+import clusterM from '../../../../assets/NS_Audiozone_M.png';
+import clusterL from '../../../../assets/NS_Audiozone_L.png';
+import clusterXL from '../../../../assets/NS_Audiozone_XL.png';
+import clusterXXL from '../../../../assets/NS_Audiozone_XXL.png';
+
 const OverlappingMarkerSpiderfierComponent = (props: { children: (props: OverlappingMarkerSpiderfier | null) => React.ReactNode }) => {
 	const map = useGoogleMap();
 	const [spiderfier, set_spiderfier] = useState<OverlappingMarkerSpiderfier | null>(null);
@@ -96,20 +104,42 @@ useEffect(() => {
 		wait_for_full_page().then(recluster);
 	}, [markerClusterer && markerClusterer.ready, assetPage]);
 
-	const options = {
-		styles: [
-			{
-				url: '../../../assets/NS_Audiozone_XS.png',
-				height: 50,
-				width: 50
-			}// Custom PNG for small clusters
-				// { url: './NS_Audiozone_S.png' },
-				// { url: './NS_Audiozone_M.png' },  // Custom PNG for large clusters
-				// { url: './NS_Audiozone_L.png' },  // Custom PNG for small clusters
-				// { url: './NS_Audiozone_XL.png' }, // Custom PNG for medium clusters
-				// { url: './NS_Audiozone_XXL.png' },  // Custom PNG for large clusters
-			],
-	};
+const options = {
+  styles: [
+    {
+      url: clusterXS,
+      height: 50,
+      width: 50,
+    },
+    {
+      url: clusterS,  // Custom PNG for small clusters
+      height: 60,
+      width: 60,
+    },
+    {
+      url: clusterM,  // Custom PNG for medium clusters
+      height: 70,
+      width: 70,
+    },
+    {
+      url: clusterL,  // Custom PNG for large clusters
+      height: 80,
+      width: 80,
+    },
+    {
+      url: clusterXL,
+      height: 90,
+      width: 90,
+    },
+    {
+      url: clusterXXL,
+      height: 100,
+      width: 100,
+    },
+  ],
+};
+
+
 
 	const handleClick = (cluster: any) => {
 		updateLocation({ latitude: cluster.center.lat(), longitude: cluster.center.lng() });
@@ -151,7 +181,7 @@ useEffect(() => {
 				}
 
 				return {
-					text: count,
+					text: '',
 					index: index,
 					title: title,
 				};
