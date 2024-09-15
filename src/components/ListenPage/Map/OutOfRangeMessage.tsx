@@ -131,23 +131,22 @@ const OutOfRangeMessage = (props: Props) => {
 
         return (
             <ThemeProvider theme={lightTheme}>
-                <Paper sx={{
-                    position: 'absolute',
-                    top: '10%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 1000,
-                    p: 2,
-                    borderRadius: 2
+                <Paper
+    sx={{
+        position: 'absolute',
+        top: '70px', // 60px header + 10px gap
+        left: '50%',
+        transform: 'translate(-50%, 0)', // No need to translate vertically anymore
+        zIndex: 1000,
+        p: 2,
+        borderRadius: 2,
+    }}
+    variant='elevation'
+    elevation={8}
+>
+    {roundware.project.data?.out_of_range_message}
+</Paper>
 
-                }}
-                    variant='elevation'
-                    elevation={8}
-                >
-
-
-                    {roundware.project.data?.out_of_range_message}
-                </Paper>
             </ThemeProvider>)
     }
     return null;
