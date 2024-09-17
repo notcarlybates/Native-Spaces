@@ -4,7 +4,7 @@ import React, { useEffect, useMemo } from 'react';
 import { IAssetData } from 'roundware-web-framework/dist/types/asset';
 import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
 import marker2 from '../../../../assets/placemark_singlegradient_selected.svg';
-import marker from '../../../../assets/audiozone_XS.svg';
+import marker from '../../../../assets/Audiozone_XXS.svg';
 import { useRoundware } from '../../../../hooks';
 import { AssetInfoWindowInner } from './AssetInfoWindow';
 import finalConfig from 'config';
@@ -31,7 +31,7 @@ const AssetMarker = ({ asset, clusterer, oms }: AssetMarkerProps) => {
 
 	const iconPin = {
 		url: isPlaying ? marker2 : marker,
-		scaledSize: new google.maps.Size(isPlaying ? 35 : 32, isPlaying ? 35 : 32),
+		scaledSize: new google.maps.Size(isPlaying ? 70 : 70, isPlaying ? 70 : 70),
 		fillOpacity: 1,
 	};
 	const zIndex = isPlaying ? 101 : 100;

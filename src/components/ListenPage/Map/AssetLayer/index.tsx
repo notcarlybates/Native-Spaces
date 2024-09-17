@@ -8,12 +8,13 @@ import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
 import { useRoundware } from '../../../../hooks';
 import AssetMarker from './AssetMarker';
 
-import clusterXS from '../../../../assets/audiozone_XS.svg';
-import clusterS from '../../../../assets/audiozone_S.svg';
-import clusterM from '../../../../assets/audiozone_M.svg';
-import clusterL from '../../../../assets/audiozone_L.svg';
-import clusterXL from '../../../../assets/audiozone_XL.svg';
-import clusterXXL from '../../../../assets/audiozone_XXL.svg';
+import clusterXS from '../../../../assets/Audiozone_XS.svg';
+import clusterS from '../../../../assets/Audiozone_S.svg';
+import clusterM from '../../../../assets/Audiozone_M.svg';
+import clusterML from '../../../../assets/Audiozone_ML.svg';
+import clusterL from '../../../../assets/AudioZone_L.svg';
+//import clusterXL from '../../../../assets/AudioZone_XL.svg';
+import clusterXXL from '../../../../assets/Audiozone_XXL.svg';
 
 const OverlappingMarkerSpiderfierComponent = (props: { children: (props: OverlappingMarkerSpiderfier | null) => React.ReactNode }) => {
 	const map = useGoogleMap();
@@ -122,19 +123,24 @@ const options = {
       width: 70,
     },
     {
-      url: clusterL,  // Custom PNG for large clusters
+      url: clusterML,  // Custom PNG for large clusters
       height: 80,
       width: 80,
-    },
-    {
-      url: clusterXL,
+		},
+	    {
+      url: clusterL,  // Custom PNG for large clusters
       height: 90,
       width: 90,
     },
+    // {
+    //   url: clusterXL,
+    //   height: 100,
+    //   width: 100,
+    // },
     {
       url: clusterXXL,
-      height: 100,
-      width: 100,
+      height: 120,
+      width: 120,
     },
   ],
 };

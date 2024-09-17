@@ -2,7 +2,7 @@ import { makeStyles } from '@mui/styles';
 import config from 'config';
 import { defaultTheme } from '../../styles';
 import landingHeaderImage from '../../assets/salem2.png';
-import BannerImage from '../../assets/BannerActual.svg';
+import BannerImage from '../../assets/Banner_Tile.svg';
 
 const useStyles = makeStyles(() => ({
   topBar: {

@@ -37,20 +37,18 @@
         opacity: .8;
       }
     </style>
-    <radialGradient id="radial-gradient" cx="49.68" cy="41.46" fx="49.68" fy="41.46" r="39.96" gradientTransform="translate(94.65 -8.2) rotate(94.28) scale(1.15 1.12) skewX(-.15)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="45.04" cy="45.22" fx="45.04" fy="45.22" r="45.41" gradientTransform="translate(61.68 -16.39) rotate(60)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#262262" stop-opacity=".95"/>
-      <stop offset=".13" stop-color="#262262" stop-opacity=".9"/>
-      <stop offset=".29" stop-color="#262262" stop-opacity=".76"/>
-      <stop offset=".45" stop-color="#262262" stop-opacity=".53"/>
-      <stop offset=".47" stop-color="#262262" stop-opacity=".5"/>
-      <stop offset=".86" stop-color="#dddbe2" stop-opacity=".4"/>
-      <stop offset=".92" stop-color="#eeedf0" stop-opacity=".19"/>
-      <stop offset=".97" stop-color="#fafafb" stop-opacity=".05"/>
-      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".28" stop-color="#292664" stop-opacity=".92"/>
+      <stop offset=".47" stop-color="#36336b" stop-opacity=".83"/>
+      <stop offset=".64" stop-color="#4b4977" stop-opacity=".67"/>
+      <stop offset=".79" stop-color="#696888" stop-opacity=".45"/>
+      <stop offset=".93" stop-color="#90919e" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#a7a9ac" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <g id="New_Group">
-    <ellipse class="cls-7" cx="44.25" cy="45" rx="45" ry="45.8" transform="translate(-16.85 60.82) rotate(-60)"/>
+    <ellipse class="cls-7" cx="45.04" cy="45.22" rx="45" ry="45.8" transform="translate(-16.64 61.61) rotate(-60)"/>
     <ellipse class="cls-5" cx="45.05" cy="45.43" rx="3.74" ry="3.73"/>
     <path class="cls-2" d="M39.06,49.71c-.98-1.37-1.5-3.09-1.35-4.9.11-1.31.55-2.51,1.24-3.52"/>
     <path class="cls-2" d="M49.46,51.38c-1.39,1.02-3.14,1.56-4.99,1.41-1.53-.13-2.92-.72-4.03-1.62"/>
