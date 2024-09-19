@@ -71,7 +71,7 @@ export const App = () => {
               </NavLink>
               <Typography variant='h6' className={classes.title}>
                 <NavLink to='/' className={classes.title}>
-                  {roundware.project ? roundware.project.projectName : 'Native Spaces'}
+                  {roundware.project ? roundware.project.projectName : 'NATIVE SPACES'}
                 </NavLink>
               </Typography>
             </Toolbar>

@@ -9,6 +9,7 @@ import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import InfoIcon from '@mui/icons-material/Info';
 
 const InfoPopup = () => {
     const [open, setOpen] = useState(false);
@@ -41,7 +42,9 @@ const InfoPopup = () => {
 
     return (
         <div>
-            <Button onClick={handleClickOpen}><b>ABOUT</b></Button>
+            <IconButton onClick={handleClickOpen}>
+                <InfoIcon />
+            </IconButton>
             <Dialog
                 open={open}
                 onClose={handleClose}

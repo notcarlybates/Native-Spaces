@@ -54,17 +54,17 @@ useEffect(() => {
     };
 
     // Pan to the location
-    map.panTo(center);
+    //map.panTo(center);
 
     // Listener to set the zoom after the panning is complete
     const idleListener = map.addListener('idle', () => {
-        map.setZoom(config.map.zoom.high);
+        //map.setZoom(config.map.zoom.high);
 
         // Remove the listener after the initial pan and zoom
         google.maps.event.removeListener(idleListener);
     });
 
-    roundware.updateLocation({ latitude: selectedAsset.latitude, longitude: selectedAsset.longitude });
+    //roundware.updateLocation({ latitude: selectedAsset.latitude, longitude: selectedAsset.longitude });
     console.log(selectedAsset);
 }, [selectedAsset, map]);
 

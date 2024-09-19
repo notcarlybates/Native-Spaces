@@ -90,13 +90,13 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 							<Interweave content={description.length > 100 ? description.substr(0, 100) + '...' : description} />
 							{description.length > 100 && (
 								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton}>
-									Read more
+									More
 								</Button>
 							)}
 							{showDialog && (
 								<Dialog open={showDialog}>
 									<DialogTitle id='description' onClose={() => setShowDialog(false)}>
-										Description
+										Transcript
 									</DialogTitle>
 									<DialogContent>
 										<DialogContentText>
@@ -172,7 +172,7 @@ const TextDisplay = ({ textUrl }: { textUrl: string }) => {
 			<Interweave content={storedText.length > 100 ? storedText.substr(0, 100) + '...' : storedText} />
 			{storedText.length > 100 && (
 				<Button onClick={() => setShowDialog(true)} size='small' color='secondary' className={classes.readMoreButton}>
-					Read more
+					More
 				</Button>
 			)}
 			{showDialog && (

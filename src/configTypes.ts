@@ -2,7 +2,7 @@
 
 export type IAssetCardConfig = {
 	/** available */
-	available: ('date' | 'tags' | 'description' | 'audio' | 'photo' | 'text' | 'actions')[];
+	available: ('tags' | 'description' | 'audio' | 'photo' | 'text' | 'actions')[];
 	/** actions */
 	actionItems: ('like' | 'flag' | 'download' | 'show')[];
 };
@@ -141,7 +141,7 @@ export type IConfig = {
 				 * order will be the same as the order in the array
 				 *  */
 				active: boolean;
-				available: ('date' | 'tags' | 'description')[];
+				available: ('tags' | 'description')[];
 			};
 			history: {
 				active: boolean;
