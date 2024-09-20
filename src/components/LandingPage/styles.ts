@@ -11,6 +11,13 @@ const useStyles = makeStyles((theme) => {
 		},
 		actionButton: {
 			margin: 'auto',
+			padding: '12px 24px',
+			backgroundColor: '#00435F',
+			color: '#00435F',
+			borderRadius: '8px',
+			'&:hover': {
+				backgroundColor: '#00324A'
+			},
 		},
 		root: {
 			margin: theme.spacing(2),

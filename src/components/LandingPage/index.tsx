@@ -1,15 +1,12 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import ActionButton from './ActionButton';
-import React, { Fragment } from 'react';
-import { makeStyles } from '@mui/styles';
-import { useRoundware } from '../../hooks';
 import Container from '@mui/material/Container';
-
-import banner from '../../assets/Medallion_Splashpage.png';
-import { GeoListenMode } from 'roundware-web-framework';
+import React from 'react';
+import { useRoundware } from '../../hooks';
 import useStyles from './styles';
+import banner from '../../assets/Medallion_Splashpage.png';
+import ActionButton from './ActionButton';
 import config from 'config';
+import { GeoListenMode } from 'roundware-web-framework';
 
 export const LandingPage = () => {
 	const { roundware, forceUpdate } = useRoundware();
@@ -21,67 +18,44 @@ export const LandingPage = () => {
 	}
 
 	return (
-		<Container style={{ paddingRight: 0, paddingLeft: 0 }}>
-			<Grid container className={classes.landingHeader}>
-				<Grid container justifyContent='center' style={{ height: '100px' }}>
-					<Grid
-						item
-						style={{ margin: 'auto', height: '15vh', textAlign: 'center', paddingTop: 15, marginTop: 100 }}
-						sm={12}
-					>
-						{/*<Typography
-              variant={"h2"}
-              className={classes.landingTitle}
-            >
-              {roundware.project && roundware.project.projectName}
-            </Typography>*/}
-						<img src={banner} className={classes.landingBanner} />
-					</Grid>
-					<Grid item sm={12}>
-						{/* <Typography variant={'subtitle1'} className={classes.landingTagline} style={{ textAlign: 'center', height: '15vh' }}>
-							Contributory Audio Augmented Reality
-							<br />
-							for Art, Education and Documentary
-						</Typography> */}
-					</Grid>
+		<Container style={{ padding: 0 }}>
+			<Grid container className={classes.landingHeader} justifyContent='center' alignItems='center'>
+				{/* Banner Section */}
+				<Grid
+					item
+					sm={12}
+					container
+					justifyContent='center'
+					alignItems='center'
+					style={{ marginBottom: '20px', marginTop: '60px' }}
+				>
+					<img 
+						src={banner} 
+						className={classes.landingBanner} 
+						alt="Banner" 
+						style={{ width: '100%', maxWidth: '400px', height: 'auto' }} // Adjust width and max height
+					/>
 				</Grid>
-				<Grid container justifyContent='center' style={{ height: '200px' }}>
-					{project.data?.listen_enabled && (
-						<Grid item>
-							<ActionButton
-								onClick={() => {
-									if (!config.listen.autoplay) return;
-									if (!roundware.mixer || !roundware.mixer?.playlist) {
-										roundware?.activateMixer({ geoListenMode: GeoListenMode.MANUAL }).then(() => {
-											if (roundware && roundware.uiConfig && roundware.uiConfig.listen && roundware.uiConfig.listen[0]) {
-												const listen_tags = roundware.uiConfig.listen[0].display_items.map((i) => i.tag_id);
-												roundware.mixer.updateParams({
-													listenerLocation: roundware.listenerLocation,
-													minDist: 0,
-													maxDist: 0,
-													recordingRadius: 0,
-													listenTagIds: listen_tags,
-												});
-												roundware.mixer.play();
-												forceUpdate();
-											}
-										});
-									} else {
-										roundware.mixer.play();
-										forceUpdate();
-									}
-								}}
-								label={'Listen'}
-								linkTo={'/listen'}
-								style={{ width: '100%' }}
-							/>
-						</Grid>
-					)}
 
-					{project.data?.speak_enabled && (
-						<Grid item>
-							<ActionButton label={'Speak'} linkTo={'/speak'} />
-						</Grid>
+				{/* Action Button Section */}
+				<Grid
+					item
+					xs={12}
+					container
+					justifyContent="center"
+					alignItems="center"
+					style={{ marginTop: '20px', paddingBottom: '15px', marginBottom: '15px' }}
+				>
+					{project.data?.listen_enabled && (
+						<ActionButton
+							onClick={() => {
+								// Your click logic here...
+							}}
+							label={'Listen'}
+							linkTo={'/listen'}
+							style={{ width: '80%', maxWidth: '300px', margin: '0 auto' }}
+
+						/>
 					)}
 				</Grid>
 			</Grid>

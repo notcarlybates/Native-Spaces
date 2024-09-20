@@ -17,21 +17,21 @@ const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 	const history = useHistory();
 
 	return (
-		<Grid container direction={'column'} style={style}>
-			<Grid item sm={9} md={6}>
+		<Grid container direction="column" justifyContent="center" alignItems="center" style={style}>
+			<Grid item>
 				<Button
 					aria-label={label}
 					className={classes.actionButton}
-					variant='contained'
-					color='primary'
+					variant="contained"
+					color="primary"
 					onClick={() => {
 						if (onClick instanceof Function) {
-							onClick?.();
+							onClick();
 						}
 						history.push(linkTo);
 					}}
 				>
-					<Typography variant={'h3'} className={classes.buttonLabel}>
+					<Typography variant="h3" className={classes.buttonLabel}>
 						{label}
 					</Typography>
 				</Button>
@@ -42,23 +42,28 @@ const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 
 export default ActionButton;
 
-export const useStyles = makeStyles((theme: { spacing: (arg0: number) => any; breakpoints: { down: (arg0: string) => any } }) => {
-	return {
-		actionButton: {
-			margin: theme.spacing(2),
-			width: 300,
-			// padding: 50
-			height: 100,
-			[theme.breakpoints.down('md')]: {
-				width: 250,
-				height: 75,
-			},
+export const useStyles = makeStyles((theme) => ({
+	actionButton: {
+		padding: '12px 24px',
+		backgroundColor: '#2E7CA8',
+		color: '#fff', // Text color for visibility
+		borderRadius: '8px',
+		margin: theme.spacing(2),
+		width: 250,
+		height: 75,
+		'&:hover': {
+			backgroundColor: '#00435F',
 		},
-		buttonLabel: {
-			margin: theme.spacing(2),
-			[theme.breakpoints.down('md')]: {
-				fontSize: '2rem',
-			},
+		[theme.breakpoints.down('md')]: {
+			width: 250,
+			height: 75,
 		},
-	};
-});
+	},
+	buttonLabel: {
+		margin: 'auto',
+		fontSize: '30px', // Set a fixed font size
+		position: 'relative',
+		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+		fontWeight: 'bold',
+	},
+}));
