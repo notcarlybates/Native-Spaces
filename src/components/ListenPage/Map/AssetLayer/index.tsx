@@ -54,7 +54,7 @@ useEffect(() => {
     };
 
     // Pan to the location
-    //map.panTo(center);
+    map.panTo(center);
 
     // Listener to set the zoom after the panning is complete
     const idleListener = map.addListener('idle', () => {
