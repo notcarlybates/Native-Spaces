@@ -15,19 +15,19 @@ const useStyles = makeStyles(() => ({
   },
   navLogo: {
     position: 'absolute',
-    top: '64px', // Adjust this based on your top bar height
-    left: '0px',
+    top: '50px', // Adjust this based on your top bar height
+    left: '-5px',
     transform: 'translateY(-50%)',
     zIndex: 2, // Ensure it overlaps the top bar and main content
     width: 'auto', // Adjust size as needed
-    height: '130px', // Adjust size as needed
+    height: '110px', // Adjust size as needed
   },
   title: {
     position: 'relative',
     fontSize: '25px',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: 'bold',
-    left: '55px',
+    left: '40px',
     flexGrow: 1,
     color: 'white',
     textDecoration: 'none',
