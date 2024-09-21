@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '25px',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: 'bold',
-    left: '40px',
+    left: '45px',
     flexGrow: 1,
     color: 'white',
     textDecoration: 'none',
