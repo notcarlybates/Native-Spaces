@@ -53,6 +53,22 @@ const useStyles = makeStyles((theme) => {
 				height: 'auto',
 			},
 		},
+		fixedBanner: {
+			position: 'fixed',
+			top: '10vh', // Position below the top bar
+			left: '50%',
+			transform: 'translateX(-50%)',
+			//zIndex: 2, // Ensure it overlaps other content
+			width: '90%', // Responsive width
+			maxWidth: '400px', // Limit maximum width
+		  },
+		  fixedActionButton: {
+			position: 'fixed',
+			bottom: '10vh', // Position above the bottom of the viewport
+			left: '50%',
+			transform: 'translateX(-50%)',
+			zIndex: 2, // Ensure it overlaps other content
+		  },
 	};
 });
 

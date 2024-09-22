@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     backgroundRepeat: 'repeat', // Prevent repeating of the image
   },
   navLogo: {
-    position: 'absolute',
+    position: 'fixed',
     top: '50px', // Adjust this based on your top bar height
     left: '-5px',
     transform: 'translateY(-50%)',
@@ -34,13 +34,15 @@ const useStyles = makeStyles(() => ({
   },
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
-  bottom: 0, // Stick to the bottom of the screen
+  bottom: '0', // Stick to the bottom of the screen
+  position: 'fixed',
     width: '100%',  // Full width of the container
     height: '60px', // Adjust height based on desired banner size
     backgroundImage: `url(${BannerImage})`, // Use imported BannerImage
     //backgroundSize: 'fit', // Ensure the entire image is visible
     backgroundPosition: 'center', // Center the image
     backgroundRepeat: 'repeat', // Prevent repeating of the image
+    top: 'unset',
   },
   actionButton: {
     margin: 'auto',

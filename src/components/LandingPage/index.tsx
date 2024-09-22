@@ -20,45 +20,35 @@ export const LandingPage = () => {
 	return (
 		<Container style={{ padding: 0 }}>
 			<Grid container className={classes.landingHeader} justifyContent='center' alignItems='center'>
-				{/* Banner Section */}
-				<Grid
-					item
-					sm={12}
-					container
-					justifyContent='center'
-					alignItems='center'
-					style={{ marginBottom: '20px', marginTop: '60px' }}
-				>
-					<img 
-						src={banner} 
-						className={classes.landingBanner} 
-						alt="Banner" 
-						style={{ width: '100%', maxWidth: '400px', height: 'auto' }} // Adjust width and max height
-					/>
-				</Grid>
-
-				{/* Action Button Section */}
-				<Grid
-					item
-					xs={12}
-					container
-					justifyContent="center"
-					alignItems="center"
-					style={{ marginTop: '20px', paddingBottom: '15px', marginBottom: '15px' }}
-				>
-					{project.data?.listen_enabled && (
-						<ActionButton
-							onClick={() => {
-								// Your click logic here...
-							}}
-							label={'Listen'}
-							linkTo={'/listen'}
-							style={{ width: '80%', maxWidth: '300px', margin: '0 auto' }}
-
-						/>
-					)}
+				{/* Main Content */}
+				<Grid item xs={12} style={{ paddingTop: '60px', paddingBottom: '20vh' }}> {/* Adjust bottom padding */}
+					{/* Your main content goes here */}
 				</Grid>
 			</Grid>
+
+			{/* Fixed Position Banner Section */}
+			<div className={classes.fixedBanner}>
+				<img 
+					src={banner} 
+					className={classes.landingBanner} 
+					alt="Banner" 
+					style={{ width: '100%', maxWidth: '400px', height: 'auto' }} // Responsive sizing
+				/>
+			</div>
+
+			{/* Fixed Position Action Button Section */}
+			<div className={classes.fixedActionButton}>
+				{project.data?.listen_enabled && (
+					<ActionButton
+						onClick={() => {
+							// Your click logic here...
+						}}
+						label={'Listen'}
+						linkTo={'/listen'}
+						style={{ width: '80%', maxWidth: '300px'}}
+					/>
+				)}
+			</div>
 		</Container>
 	);
 };

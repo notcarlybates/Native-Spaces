@@ -35,7 +35,7 @@ const ListenerLocationMarker = () => {
 					strokeColor: theme.palette.secondary.light,
 					strokeOpacity: 0.5,
 					strokeWeight: 0,
-					fillColor: theme.palette.primary.light,
+					fillColor: '#FFCD67',
 					fillOpacity: 0.3,
 					clickable: false,
 					draggable: false,

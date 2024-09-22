@@ -133,13 +133,15 @@ const OutOfRangeMessage = (props: Props) => {
             <ThemeProvider theme={lightTheme}>
                 <Paper
     sx={{
-        position: 'absolute',
+        position: 'fixed',
         top: '80px', // 60px header + 10px gap
         left: '50%',
         transform: 'translate(-50%, 0)', // No need to translate vertically anymore
         zIndex: 1000,
         p: 2,
         borderRadius: 2,
+        backgroundColor: '#00435F',
+        color: 'white',
     }}
     variant='elevation'
     elevation={8}
