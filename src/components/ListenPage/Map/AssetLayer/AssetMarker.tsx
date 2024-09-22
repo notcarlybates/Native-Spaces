@@ -3,7 +3,7 @@ import { Clusterer } from '@react-google-maps/marker-clusterer';
 import React, { useEffect, useMemo } from 'react';
 import { IAssetData } from 'roundware-web-framework/dist/types/asset';
 import { OverlappingMarkerSpiderfier } from 'ts-overlapping-marker-spiderfier';
-import marker2 from '../../../../assets/placemark_singlegradient_selected.svg';
+import marker2 from '../../../../assets/Audiozone_XXSSelected.svg';
 import marker from '../../../../assets/Audiozone_XXS.svg';
 import { useRoundware } from '../../../../hooks';
 import { AssetInfoWindowInner } from './AssetInfoWindow';

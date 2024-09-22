@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => {
 	return {
 		map: {
 			display: 'flex',
+			overflow: 'hidden',
 		},
 	};
 });

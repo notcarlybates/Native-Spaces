@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import Helmet from 'react-helmet';
 import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
 import { getMessageOnLoad } from 'utils/platformMessages';
-import favicon from '../../assets/favicon.png';
+import favicon from '../../assets/NativeSpaces_Favicon.svg';
 import logoSimple from '../../../src/assets/Medallion_Banner.png';
 import logoMinimal from '../../../src/assets/Medallion_Splashpage.png';
 import { useRoundware } from '../../hooks';

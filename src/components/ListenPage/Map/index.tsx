@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => {
 	return {
 		roundwareMap: {
 			flexGrow: 1,
+			overflow: 'hidden',
 		},
 	};
 });

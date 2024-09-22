@@ -4,6 +4,7 @@ export const useStyles = makeStyles((theme) => {
 	return {
 		container: {
 			overflowX: 'hidden',
+			overflowY: 'hidden',
 			padding: theme.spacing(2),
 			marginBottom: 70,
 			backgroundColor: theme.palette.background.default,
