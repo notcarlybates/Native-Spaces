@@ -44,9 +44,9 @@ const AssetMarker = ({ asset, clusterer, oms }: AssetMarkerProps) => {
 	};
 	return (
 		<div>
-			<Marker position={position} icon={iconPin} zIndex={zIndex} clusterer={clusterer} onLoad={onLoad} noClustererRedraw={true}>
+			{/* <Marker position={position} icon={iconPin} zIndex={zIndex} clusterer={clusterer} onLoad={onLoad} noClustererRedraw={true}>
 				<AssetInfoWindow asset={asset} />
-			</Marker>
+			</Marker> */}
 
 			{finalConfig.map.assetDisplay === 'circle' &&
 				<Circle center={position} radius={roundware.project.recordingRadius} options={{ strokeColor: '#000000', strokeOpacity: 0.8, strokeWeight: 2, fillOpacity: 0.1 }} />
