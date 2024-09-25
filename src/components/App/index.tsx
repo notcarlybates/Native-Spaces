@@ -69,7 +69,7 @@ export const App = () => {
               <NavLink to='/'>
                 <img src={logoSrc} className={classes.navLogo} />  {/* Apply the updated class */}
               </NavLink>
-              <Typography variant='h6' className={classes.title}>
+              <Typography fontSize='16em' className={classes.title}>
                 <NavLink to='/' className={classes.title}>
                   {roundware.project ? roundware.project.projectName : 'NATIVE SPACES'}
                 </NavLink>

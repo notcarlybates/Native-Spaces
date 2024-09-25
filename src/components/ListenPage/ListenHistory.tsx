@@ -53,7 +53,7 @@ const ListenHistory = () => {
 							<CardHeader
 								subheader={
 									<Stack
-										spacing={1}
+										spacing={0}
 										direction='row'
 										alignItems={'center'}
 										onClick={() => {
@@ -68,32 +68,32 @@ const ListenHistory = () => {
 												transform: (config.ui.listenSidebar.history.infoCardDefaultCollapsed ? collapsedItems.includes(asset.id) : !collapsedItems.includes(asset.id)) ? 'rotate(90deg)' : 'rotate(0deg)',
 											}}
 										/>
-
-										<Typography variant='subtitle2'>{moment(asset.addedAt).format('h:mm:ss A MMMM Do YYYY')}</Typography>
+										{/* <Typography variant='subtitle2'>{moment(asset.addedAt).format('h:mm:ss A MMMM Do YYYY')}</Typography> */}
 									</Stack>
 								}
 							/>
 
-							<Collapse in={config.ui.listenSidebar.history.infoCardDefaultCollapsed ? collapsedItems.includes(asset.id) : !collapsedItems.includes(asset.id)}>
-								<CardContent>
-									<AssetInfoCard
-										asset={asset}
-										roundware={roundware}
-										cardConfig={config.ui.listenSidebar.history.available}
-										actions={
-											<IconButton
-												title='Show on Map'
-												onClick={() => {
-													selectAsset(asset);
-													forceUpdate();
-												}}
-											>
-												{selectedAsset?.id == asset.id ? <LocationOn /> : <LocationOnOutlined />}
-											</IconButton>
-										}
-									/>
-								</CardContent>
-							</Collapse>
+<Collapse in={config.ui.listenSidebar.history.infoCardDefaultCollapsed ? collapsedItems.includes(asset.id) : !collapsedItems.includes(asset.id)}>
+  <CardContent sx={{ paddingBottom: 0, paddingTop: 0 }}> {/* Adjust the padding here */}
+    <AssetInfoCard
+      asset={asset}
+      roundware={roundware}
+      cardConfig={config.ui.listenSidebar.history.available}
+      actions={
+        <IconButton
+          title='Show on Map'
+          onClick={() => {
+            selectAsset(asset);
+            forceUpdate();
+          }}
+        >
+          {selectedAsset?.id == asset.id ? <LocationOn /> : <LocationOnOutlined />}
+        </IconButton>
+      }
+    />
+  </CardContent>
+</Collapse>
+
 						</Card>
 					);
 				})
