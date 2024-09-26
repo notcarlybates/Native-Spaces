@@ -23,8 +23,12 @@ const useStyles = makeStyles((theme) => {
 			left: 20,
 			bottom: 68,
 			backgroundColor: '#2E7CA8',
+			touchAction: 'manipulation', // Ensures proper handling on mobile devices
 			'&:hover': {
 				backgroundColor: '#00324A',
+			},
+			'&:active': {
+				backgroundColor: '#2E7CA8', // Resets to default on click
 			},
 		},
 		hidden: {
@@ -32,6 +36,7 @@ const useStyles = makeStyles((theme) => {
 		},
 	};
 });
+
 
 const walkingModeButton = () => {
 	const { roundware, forceUpdate, geoListenMode, setGeoListenMode } = useRoundware();

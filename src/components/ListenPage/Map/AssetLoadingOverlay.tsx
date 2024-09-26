@@ -6,12 +6,12 @@ export const useLoadingStyles = makeStyles((theme) => {
 	return {
 		backdrop: {
 			zIndex: theme.zIndex.drawer + 1,
-			color: '#fff',
+			color: '#489AB7',
 		},
 		loadingCard: {
 			display: 'flex',
 			flexDirection: 'column',
-			backgroundColor: theme.palette.grey[900],
+			backgroundColor: '#00686B',
 		},
 		loadingMessage: {
 			padding: theme.spacing(2),

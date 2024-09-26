@@ -5,8 +5,10 @@ import config from 'config';
 import { useRoundware } from 'hooks';
 import { sortBy, uniqBy } from 'lodash';
 import moment from 'moment';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import AssetInfoCard from './Map/AssetLayer/AssetInfoCard';
+import { TagsDisplay } from 'components/AssetTags';
+
 const ListenHistory = () => {
 	const { roundware, selectAsset, forceUpdate, selectedAsset, playingAssets } = useRoundware();
 	const { assets } = roundware.listenHistory;
@@ -41,6 +43,15 @@ const ListenHistory = () => {
 						}}
 						size='small'
 						variant='outlined'
+						sx={{
+							color: 'white', // Change text color
+							borderColor: 'white', // Change button outline color
+							'&:hover': {
+								color: 'white', // Keep text color white on hover
+								borderColor: 'white', // Keep border color white on hover
+								backgroundColor: 'rgba(255, 255, 255, 0.1)', // Optional: Add a hover background color
+							},
+						}}
 					>
 						Clear Listening History
 					</Button>
@@ -49,52 +60,72 @@ const ListenHistory = () => {
 			{list.length ? (
 				list.map((asset) => {
 					return (
-						<Card key={asset.id}>
-							<CardHeader
-								subheader={
-									<Stack
-										spacing={0}
-										direction='row'
-										alignItems={'center'}
-										onClick={() => {
-											toggleCollapse(asset.id);
-										}}
-										sx={{
-											cursor: 'pointer',
-										}}
-									>
-										<ChevronRight
-											sx={{
-												transform: (config.ui.listenSidebar.history.infoCardDefaultCollapsed ? collapsedItems.includes(asset.id) : !collapsedItems.includes(asset.id)) ? 'rotate(90deg)' : 'rotate(0deg)',
-											}}
-										/>
-										{/* <Typography variant='subtitle2'>{moment(asset.addedAt).format('h:mm:ss A MMMM Do YYYY')}</Typography> */}
-									</Stack>
-								}
-							/>
+						<Card
+	key={asset.id}
+	sx={{
+		backgroundColor: '#00686B', // Change the background color of the card
+	}}
+>
+	<CardHeader
+		subheader={
+			<Stack
+				spacing={1}
+				direction='row'
+				alignItems={'center'}
+				onClick={() => {
+					toggleCollapse(asset.id);
+				}}
+				sx={{
+					cursor: 'pointer',
+				}}
+			>
+				<ChevronRight
+					sx={{
+						transform: (config.ui.listenSidebar.history.infoCardDefaultCollapsed
+							? collapsedItems.includes(asset.id)
+							: !collapsedItems.includes(asset.id))
+							? 'rotate(90deg)'
+							: 'rotate(0deg)',
+					}}
+				/>
+				<TagsDisplay tagIds={asset.tag_ids} />
+			</Stack>
+		}
+	/>
 
-<Collapse in={config.ui.listenSidebar.history.infoCardDefaultCollapsed ? collapsedItems.includes(asset.id) : !collapsedItems.includes(asset.id)}>
-  <CardContent sx={{ paddingBottom: 0, paddingTop: 0 }}> {/* Adjust the padding here */}
-    <AssetInfoCard
-      asset={asset}
-      roundware={roundware}
-      cardConfig={config.ui.listenSidebar.history.available}
-      actions={
-        <IconButton
-          title='Show on Map'
-          onClick={() => {
-            selectAsset(asset);
-            forceUpdate();
-          }}
-        >
-          {selectedAsset?.id == asset.id ? <LocationOn /> : <LocationOnOutlined />}
-        </IconButton>
-      }
-    />
-  </CardContent>
-</Collapse>
-
-						</Card>
+	<Collapse
+		in={
+			config.ui.listenSidebar.history.infoCardDefaultCollapsed
+				? collapsedItems.includes(asset.id)
+				: !collapsedItems.includes(asset.id)
+		}
+	>
+		<CardContent
+			sx={{
+				backgroundColor: '#00686B', // Change the background color of the card content
+				paddingBottom: 0,
+				paddingTop: 1,
+			}}
+		>
+			<AssetInfoCard
+				asset={asset}
+				roundware={roundware}
+				cardConfig={config.ui.listenSidebar.history.available}
+				actions={
+					<IconButton
+						title='Show on Map'
+						onClick={() => {
+							selectAsset(asset);
+							forceUpdate();
+						}}
+					>
+						{selectedAsset?.id == asset.id ? <LocationOn /> : <LocationOnOutlined />}
+					</IconButton>
+				}
+			/>
+		</CardContent>
+	</Collapse>
+</Card>
 					);
 				})
 			) : (

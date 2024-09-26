@@ -134,7 +134,7 @@ const OutOfRangeMessage = (props: Props) => {
                 <Paper
     sx={{
         position: 'fixed',
-        top: '80px', // 60px header + 10px gap
+        top: 'px', // 60px header + 10px gap
         left: '50%',
         transform: 'translate(-50%, 0)', // No need to translate vertically anymore
         zIndex: 1000,

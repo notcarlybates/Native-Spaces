@@ -89,7 +89,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 							<Typography variant='body2'>Transcript:</Typography>
 							<Interweave content={description.length > 100 ? description.substr(0, 100) + '...' : description} />
 							{description.length > 100 && (
-								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton}>
+								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton} style={{ color: 'white' }}>
 									More
 								</Button>
 							)}
@@ -98,7 +98,10 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 									<DialogTitle id='description' onClose={() => setShowDialog(false)}>
 										Transcript
 									</DialogTitle>
-									<DialogContent>
+									<DialogContent
+									sx = {{
+										backgroundColor: '#00686B'
+									}}>
 										<DialogContentText>
 											<Interweave content={description} />
 										</DialogContentText>
@@ -171,20 +174,24 @@ const TextDisplay = ({ textUrl }: { textUrl: string }) => {
 		<div>
 			<Interweave content={storedText.length > 100 ? storedText.substr(0, 100) + '...' : storedText} />
 			{storedText.length > 100 && (
-				<Button onClick={() => setShowDialog(true)} size='small' color='secondary' className={classes.readMoreButton}>
+				<Button onClick={() => setShowDialog(true)} size='small' color='secondary' className={classes.readMoreButton} style={{ color: '#2E7CA8' }}>
 					More
 				</Button>
 			)}
 			{showDialog && (
 				<Dialog open={showDialog}>
 					<DialogTitle id='description' onClose={() => setShowDialog(false)}>
-						Additional Info
+						Transcript
 					</DialogTitle>
-					<DialogContent>
-						<DialogContentText>
-							<Interweave content={storedText} />
-						</DialogContentText>
-					</DialogContent>
+					<DialogContent
+    style={{
+        backgroundColor: '#00686B',
+    }}>
+    <DialogContentText>
+        <Interweave content={storedText} />
+    </DialogContentText>
+</DialogContent>
+
 				</Dialog>
 			)}
 		</div>
@@ -203,9 +210,10 @@ const useStyles = makeStyles((theme) => ({
 		transform: 'translate(-50%, -50%)',
 		outline: 0,
 		minWidth: 300,
+		color: '#00686B'
 	},
 	readMoreButton: {
-		color: theme.palette.info.dark,
+		color: '#489AB7',
 	},
 }));
 const styles = (theme: Theme) =>
@@ -218,7 +226,7 @@ const styles = (theme: Theme) =>
 			position: 'absolute',
 			right: theme.spacing(1),
 			top: theme.spacing(1),
-			color: theme.palette.grey[500],
+			color: '#00686B',
 		},
 	});
 export interface DialogTitleProps extends WithStyles<typeof styles> {
