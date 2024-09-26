@@ -89,7 +89,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 							<Typography variant='body2'>Transcript:</Typography>
 							<Interweave content={description.length > 100 ? description.substr(0, 100) + '...' : description} />
 							{description.length > 100 && (
-								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton} style={{ color: 'white' }}>
+								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton} style={{ color: '#2E7CA8' }}>
 									More
 								</Button>
 							)}
