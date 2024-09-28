@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
     transform: 'translateY(-50%)',
     zIndex: 2, // Ensure it overlaps the top bar and main content
     width: 'auto', // Adjust size as needed
-    height: '110px', // Adjust size as needed
+    height: '100px', // Adjust size as needed
   },
   title: {
     position: 'relative',
