@@ -89,12 +89,14 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
 							<Typography variant='body2'>Transcript:</Typography>
 							<Interweave content={description.length > 100 ? description.substr(0, 100) + '...' : description} />
 							{description.length > 100 && (
-								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton} style={{ color: '#2E7CA8' }}>
+								<Button onClick={() => setShowDialog(true)} size='small' className={classes.readMoreButton} sx={{
+									backgroundColor: '#00686B>', // Same background color as body
+								  }}>
 									More
 								</Button>
 							)}
 							{showDialog && (
-								<Dialog open={showDialog}>
+								<Dialog open={showDialog} className={classes.dialogContent}>
 									<DialogTitle id='description' onClose={() => setShowDialog(false)}>
 										Transcript
 									</DialogTitle>
@@ -215,6 +217,20 @@ const useStyles = makeStyles((theme) => ({
 	readMoreButton: {
 		color: '#489AB7',
 	},
+	dialogContent: {
+		root: {
+            margin: 0,
+            padding: theme.spacing(2),
+            backgroundColor: '#00686B', // Add this line
+        },
+        closeButton: {
+            position: 'absolute',
+            right: theme.spacing(1),
+            top: theme.spacing(1),
+            color: '#FFFFFF', // Adjust as needed
+        },
+	}
+
 }));
 const styles = (theme: Theme) =>
 	createStyles({

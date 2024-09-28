@@ -29,12 +29,12 @@ const useStyles = makeStyles(() => ({
     fontSize: '25px',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: 'bold',
-    left: '45px',
-    flexGrow: 1,
+    left: isMobile ? '0' : '45px',  // Set left to 0 on mobile
+    flexGrow: 0,                     // Prevent growing on mobile
     color: 'white',
     textAlign: isMobile ? 'center' : 'left',
     textDecoration: 'none',
-  },
+},
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
   bottom: '0', // Stick to the bottom of the screen

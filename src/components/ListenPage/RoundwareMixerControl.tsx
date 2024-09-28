@@ -129,9 +129,18 @@ const RoundwareMixerControl = () => {
 			</Button>
 
 			<Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }} style={{ marginBottom: 50 }}>
-				<Alert elevation={6} severity='success'>
-					Remixing audio: skipping ahead!
-				</Alert>
+			<Alert 
+        elevation={6} 
+		sx={{ 
+            backgroundColor: '#00686B', // Replace with your desired background color
+            color: '#ffffff', // Replace with your desired text color
+			left: '30%', // Move it toward the left
+		}}
+		
+        severity='success' 
+    >
+        Remixing audio: skipping ahead!
+    </Alert>
 			</Snackbar>
 		</>
 	);
