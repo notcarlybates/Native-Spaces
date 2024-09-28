@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => {
 		  },
 		  fixedActionButton: {
 			position: 'fixed',
-			bottom: '15vh', // Position above the bottom of the viewport
+			bottom: '22vh', // Position above the bottom of the viewport
 			left: '50%',
 			transform: 'translateX(-50%)',
 			zIndex: 2, // Ensure it overlaps other content

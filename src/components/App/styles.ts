@@ -4,6 +4,8 @@ import { defaultTheme } from '../../styles';
 import landingHeaderImage from '../../assets/background.png';
 import BannerImage from '../../assets/Banner_Tile.svg';
 
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
 const useStyles = makeStyles(() => ({
   topBar: {
     width: '100%',  // Full width of the container
@@ -30,6 +32,7 @@ const useStyles = makeStyles(() => ({
     left: '45px',
     flexGrow: 1,
     color: 'white',
+    textAlign: isMobile ? 'center' : 'left',
     textDecoration: 'none',
   },
   bottomBar: {
