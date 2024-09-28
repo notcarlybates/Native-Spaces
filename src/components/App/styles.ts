@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
   },
 title: {
   position: 'relative',
-  fontSize: '29px',
+  fontSize: '28px',
   fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   fontWeight: 'bold',
   left: isMobile ? '0' : '45px',  // Set left to 0 on mobile

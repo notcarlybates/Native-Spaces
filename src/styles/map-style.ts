@@ -98,6 +98,43 @@ export const RoundwareMapStyle: google.maps.MapTypeStyle[] = [
     stylers: [{ color: "#dcd2be" }],
   },
   {
+    featureType: "road.highway",
+    elementType: "labels.text",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "transit.line",
+    elementType: "labels.geometry",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.text.fill",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.text.stroke",
+    stylers: [{ visibility: "off" }],
+  },  
+  {
+    elementType: "labels",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    elementType: "labels.text.fill",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    elementType: "labels.text.stroke",
+    stylers: [{ visibility: "off" }],
+  },  
+  {
     featureType: "administrative.land_parcel",
     elementType: "labels.text.fill",
     stylers: [{ color: "#ae9e90" }],
