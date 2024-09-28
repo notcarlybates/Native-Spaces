@@ -34,7 +34,11 @@ const useStyles = makeStyles(() => ({
     color: 'white',
     textAlign: isMobile ? 'center' : 'left',
     textDecoration: 'none',
-},
+    display: 'block',                // Use block display for centering
+    margin: isMobile ? '0 auto' : '0', // Center horizontally on mobile
+    width: isMobile ? '100%' : 'auto' // Full width on mobile
+  },
+
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
   bottom: '0', // Stick to the bottom of the screen
