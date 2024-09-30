@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '27px',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: 'bold',
-    left: '45px',
+    left: isMobile ? '20' : '45px',
     flexGrow: 1,
     color: 'white',
     textAlign: isMobile ? 'center' : 'left',
