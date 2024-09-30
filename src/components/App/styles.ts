@@ -26,15 +26,16 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     position: 'relative',
-    fontSize: '27px',
-    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-    fontWeight: 'bold',
-    left: isMobile ? '40' : '45px',
-    flexGrow: 1,
-    color: 'white',
-    textAlign: isMobile ? 'center' : 'left',
-    textDecoration: 'none',
-  },
+      fontSize: '25px',
+      fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+      fontWeight: 'bold',
+      left: '45px',
+      flexGrow: 1,
+      color: 'white',
+      textAlign: isMobile ? 'center' : 'left',
+      textDecoration: 'none',
+      marginLeft: isMobile ? '20x' : '0px', // Shift title to the right to avoid the navLogo
+    },
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
   bottom: '0', // Stick to the bottom of the screen

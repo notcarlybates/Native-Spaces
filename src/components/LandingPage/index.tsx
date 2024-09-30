@@ -21,7 +21,7 @@ export const LandingPage = () => {
 		<Container style={{ padding: 0 }}>
 			<Grid container className={classes.landingHeader} justifyContent='center' alignItems='center'>
 				{/* Main Content */}
-				<Grid item xs={12} style={{ paddingTop: '40px', paddingBottom: '20vh' }}> {/* Adjust bottom padding */}
+				<Grid item xs={12} style={{ paddingTop: '60px', paddingBottom: '28vh' }}> {/* Adjust bottom padding */}
 					{/* Your main content goes here */}
 				</Grid>
 			</Grid>
