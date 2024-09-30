@@ -1,14 +1,15 @@
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Stack from '@mui/material/Stack';
 import { useGoogleMap } from '@react-google-maps/api';
 import CopyableText from 'components/elements/CopyableText';
-import Modal from 'components/elements/Modal';
 import { useUIContext } from 'context/UIContext';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import { URLContext } from 'context/URLContext';
 import { useRoundware } from 'hooks';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
+import { Modal, Box, Stack, Paper } from '@mui/material';
 import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
 
 type Props = {
@@ -29,37 +30,27 @@ const ShareDialog = (props: Props) => {
 	const { link, showOptions } = useMemo(() => {
 		const searchParams = new URLSearchParams();
 
-		// when on listen page need show options
 		if (window.location.pathname === '/listen') {
-			// get current url
 			let link = window.location.toString();
 
-			// asked to include geo information and asset not any asset selected
 			if (includeGeo && !isAssetSelected && roundware) {
 				const center = map?.getCenter();
-
-				// add to search params
 				if (center) {
 					searchParams.append('latitude', center.lat().toString());
 					searchParams.append('longitude', center.lng().toString());
 				}
-
 				const zoom = map?.getZoom();
 				if (zoom) {
 					searchParams.append('zoom', zoom.toString());
 				}
 
 				let prefixCharacter = `?`;
-
-				// check previous query params
 				const splitted = link.split(`?`);
 
 				if (splitted.length > 1) {
-					// need to append to existing
 					prefixCharacter = `&`;
 				}
 
-				// final link with location info
 				link = link + prefixCharacter + searchParams.toString();
 			}
 
@@ -78,51 +69,92 @@ const ShareDialog = (props: Props) => {
 
 	useEffect(() => {
 		if (!showShare) return;
-
 		roundware.events?.logEvent(`share_map`, {
 			data: `url: ${link}`,
 		});
 	}, [showShare, link]);
 
+
 	return (
-		<Modal open={!!showShare} title='Share' onClose={handleCloseShare}>
-			<Stack direction='column' justifyContent='center' spacing={2} color = '#2E7CA8'>
-				<Stack direction='row' justifyContent='center' spacing={2}>
-					{/* <WhatsappShareButton url={message}>
-						<WhatsappIcon round />
-					</WhatsappShareButton>
-					<EmailShareButton url={message}>
-						<EmailIcon round />
-					</EmailShareButton>
-					<TwitterShareButton url={message}>
-						<TwitterIcon round />
-					</TwitterShareButton>
-					<FacebookShareButton url={message}>
-						<FacebookIcon round />
-					</FacebookShareButton> */}
-				</Stack>
+		<Modal
+		  open={!!showShare}
+		  onClose={handleCloseShare}
+		  sx={{
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+		  }}
+		>
+		  <Paper
+			sx={{
+			  backgroundColor: '#006B68', // Custom background color
+			  color: '#ffffff', // Optional: Set text color for contrast
+			  borderRadius: '8px', // Add border-radius
+			  padding: '16px', // Padding for better spacing
+			  width: '350px', // Smaller width
+			  maxWidth: '80%', // Ensure it doesn't exceed viewport width on small screens
+			  position: 'relative',
+			}}
+		  >
+			    {/* Close "X" button */}
+				<IconButton
+      onClick={handleCloseShare}
+      sx={{
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        color: '#ffffff', // Same color as the dialog for contrast
+      }}
+    >
+      <CloseIcon />
+    </IconButton>
+			    {/* Title */}
+				<Box
+      component="h2"
+      sx={{
+        margin: 0,
+		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+        fontSize: '1.5rem', // Adjust the size of the title text
+        color: '#ffffff', // Ensure the title text has proper contrast
+      }}
+    >
+      Share
+    </Box>
 
-				{/* link */}
-				<CopyableText>{message}</CopyableText>
-
-				{/* options */}
-				{showOptions && (
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={includeGeo}
-								onChange={(event) => {
-									setIncludeGeo(event.target.checked);
-								}}
-								inputProps={{ 'aria-label': 'controlled' }}
-							/>
-						}
-						label='Include Current Geo Information'
+			<Stack direction='column' justifyContent='center' spacing={2}>
+			  <Stack direction='row' justifyContent='center' spacing={2}>
+				{/* Share buttons */}
+			  </Stack>
+			  <Box
+    //   sx={{
+    //     maxHeight: '100px', // Set a fixed height for the text box
+    //     overflowY: 'auto', // Enable scrolling when content overflows
+    //   }}
+    >
+			  {/* Link */}
+			  <CopyableText>{message}</CopyableText>
+	  </Box>
+			  {/* Options */}
+			  {showOptions && (
+				<FormControlLabel
+				  control={
+					<Checkbox
+					  checked={includeGeo}
+					  onChange={(event) => {
+						setIncludeGeo(event.target.checked);
+					  }}
+					  inputProps={{ 'aria-label': 'controlled' }}
 					/>
-				)}
+				  }
+				  label='Include Current Geo Information'
+				/>
+			  )}
 			</Stack>
+		  </Paper>
 		</Modal>
-	);
+	  );
+	  
+
 };
 
 export default ShareDialog;
