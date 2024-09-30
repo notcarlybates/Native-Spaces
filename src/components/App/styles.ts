@@ -24,20 +24,18 @@ const useStyles = makeStyles(() => ({
     width: 'auto', // Adjust size as needed
     height: '110px', // Adjust size as needed
   },
-title: {
-  position: 'relative',
-  fontSize: '28px',
-  fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-  fontWeight: 'bold',
-  left: isMobile ? '0' : '45px',  // Set left to 0 on mobile
-  flexGrow: 0,                     // Prevent growing on mobile
-  color: 'white',
-  textAlign: isMobile ? 'center' : 'left',
-  textDecoration: 'none',
-  display: 'block',                // Use block display for centering
-  margin: isMobile ? '0 auto' : '0', // Center horizontally on mobile
-  width: isMobile ? '100%' : 'auto' // Full width on mobile
+  title: {
+    position: 'relative',
+    fontSize: '28px',
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+    fontWeight: 'bold',
+    left: isMobile ? '0' : '45px',  // Set left to 0 on mobile
+    flexGrow: 0,                     // Prevent growing on mobile
+    color: 'white',
+    textAlign: isMobile ? 'center' : 'left',
+    textDecoration: 'none',
 },
+
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
   bottom: '0', // Stick to the bottom of the screen
