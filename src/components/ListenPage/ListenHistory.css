@@ -1,0 +1,12 @@
+/* ListenHistory.css */
+.custom-card {
+    background-color: #00686B !important; /* Card background color */
+    color: white !important; /* Text color */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.custom-card-content {
+    background-color: #00686B !important; /* Card content background color */
+    color: white !important; /* Text color for content */
+}

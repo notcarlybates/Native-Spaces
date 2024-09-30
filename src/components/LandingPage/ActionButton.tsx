@@ -44,7 +44,7 @@ export default ActionButton;
 
 export const useStyles = makeStyles((theme) => ({
 	actionButton: {
-		padding: '12px 24px',
+		padding: '24px 24px',
 		backgroundColor: '#2E7CA8',
 		color: '#fff', // Text color for visibility
 		borderRadius: '8px',

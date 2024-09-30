@@ -86,7 +86,7 @@ const ShareDialog = (props: Props) => {
 
 	return (
 		<Modal open={!!showShare} title='Share' onClose={handleCloseShare}>
-			<Stack direction='column' justifyContent='center' spacing={2}>
+			<Stack direction='column' justifyContent='center' spacing={2} color = '#2E7CA8'>
 				<Stack direction='row' justifyContent='center' spacing={2}>
 					{/* <WhatsappShareButton url={message}>
 						<WhatsappIcon round />
