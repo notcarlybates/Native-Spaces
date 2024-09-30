@@ -26,16 +26,15 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     position: 'relative',
-    fontSize: '28px',
+    fontSize: '27px',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: 'bold',
-    left: isMobile ? '0' : '45px',  // Set left to 0 on mobile
-    flexGrow: 0,                     // Prevent growing on mobile
+    left: '45px',
+    flexGrow: 1,
     color: 'white',
     textAlign: isMobile ? 'center' : 'left',
     textDecoration: 'none',
-},
-
+  },
   bottomBar: {
     //position: 'fixed', // Use fixed positioning
   bottom: '0', // Stick to the bottom of the screen
