@@ -61,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	buttonLabel: {
 		margin: 'auto',
-		fontSize: '30px', // Set a fixed font size
+		fontSize: '30px',
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',

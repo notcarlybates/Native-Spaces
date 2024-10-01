@@ -157,7 +157,7 @@ const options = {
 			maxZoom={config.map.zoom.high - 1} //spiderFier
 			onClick={handleClick}
 			onLoad={setMarkerClusterer}
-			minimumClusterSize={3}
+			minimumClusterSize={5}
 			calculator={(markers, numStyles) => {
 				// Most of this implementation is copied from the default calculator for
 				// React google maps. Change the `styles` property to configure how
