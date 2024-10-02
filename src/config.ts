@@ -25,7 +25,7 @@ let config: IConfig = {
 		autoplay: false,
 		speaker: {
 			sync: true,
-			prefetch: false,
+			prefetch: true,
 			loop: true,
 			acceptableDelayMs: 50,
 			syncCheckInterval: 2500,
