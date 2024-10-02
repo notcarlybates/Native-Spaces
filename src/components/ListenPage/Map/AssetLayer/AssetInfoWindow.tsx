@@ -19,8 +19,8 @@ export const AssetInfoWindowInner = ({ asset, selectAsset, roundware }: AssetInf
 		<InfoWindow
 			options={{
 				disableAutoPan: false,
-				pixelOffset: new google.maps.Size(0, -30),
-				maxWidth: 320,
+				pixelOffset: new google.maps.Size(0, -40),
+				maxWidth: 240,
 			}}
 			position={position}
 			onCloseClick={() => selectAsset(null)}
