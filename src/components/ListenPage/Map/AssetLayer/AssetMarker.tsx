@@ -56,15 +56,15 @@ const AssetMarker = ({ asset, clusterer, oms }: AssetMarkerProps) => {
             </Marker>
 
             {isPlaying && (
-                <InfoWindow
-				options={{
-					disableAutoPan: false,
-					pixelOffset: new google.maps.Size(0, -30),
-					maxWidth: 320,
-				}}
-				position={position}
-				onCloseClick={() => selectAsset(null)}
-			>
+               <InfoWindow
+			   options={{
+				   disableAutoPan: false,
+				   pixelOffset: new google.maps.Size(0, -40),
+				   maxWidth: 240,
+			   }}
+			   position={position}
+			   onCloseClick={() => selectAsset(null)}
+		   >
 				<StyledEngineProvider injectFirst>
 					<ThemeProvider theme={lightTheme}>
 						<Card>

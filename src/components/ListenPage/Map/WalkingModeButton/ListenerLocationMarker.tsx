@@ -45,11 +45,13 @@ const ListenerLocationMarker = () => {
 				}}
 			/>
 
+
 			<Marker position={{ lat: center.lat, lng: center.lng }} icon={iconPin}>
 				<InfoWindow
 					options={{
 						disableAutoPan: false,
-						pixelOffset: new google.maps.Size(0, -30),
+						pixelOffset: new google.maps.Size(0, -40),
+						maxWidth: 240,
 					}}
 					position={{ lat: center.lat, lng: center.lng }}
 				>
