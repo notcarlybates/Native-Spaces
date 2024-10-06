@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/911de87fa7d1139ba94a951f/script.js"></script>
-		<title>NATIVE SPACES</title>
-		<style type="text/css">
-			#app {
-				height: 100vh;
-				display: flex;
-				flex-direction: column;
-			}
-		</style>
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-	</head>
-	<body>
-		<div id="app"></div>
-	</body>
+<head>
+	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+	<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/911de87fa7d1139ba94a951f/script.js"></script>
+	<title>NATIVE SPACES</title>
+	<style type="text/css">
+		#app {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+		.hidden {
+			visibility: hidden; /* Hides content until loaded */
+		}
+	</style>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body class="hidden">
+	<div id="app"></div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			document.body.classList.remove("hidden"); // Show content after load
+		});
+	</script>
+</body>
 </html>

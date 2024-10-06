@@ -74,6 +74,7 @@ export const App = () => {
                   {roundware.project ? roundware.project.projectName : 'NATIVE SPACES'}
                 </NavLink>
               </Typography>
+              <ShareButton />
             </Toolbar>
           </AppBar>
           <PlatformMessage getMessage={getMessageOnLoad} />
@@ -89,7 +90,6 @@ export const App = () => {
           <AppBar position='sticky' className={classes.bottomBar}>
             <Toolbar style={{ width: '100%', justifyContent: 'space-between' }}>
               <Stack spacing={1} direction='row'>
-                <ShareButton />
                 <Route path='/listen'>
                   {roundware?.project?.data?.speak_enabled && (
                     <Link to={`/speak`}>
@@ -106,7 +106,7 @@ export const App = () => {
               </div>
 
               {config.debugMode === true ? <div style={{ color: 'white' }}>mixer: {roundware.mixer && JSON.stringify(roundware.mixer.mixParams)}</div> : null}
-              <div>
+              <div style={{display: 'flex'}}>
                 <InfoPopup />
               </div>
             </Toolbar>

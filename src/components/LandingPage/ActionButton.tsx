@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import { createTheme } from '@mui/material';
 
 interface Props {
 	label: string;
@@ -66,4 +67,4 @@ export const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',
 	},
-}));
+}))
