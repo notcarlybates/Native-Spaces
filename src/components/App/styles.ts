@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
     top: 'unset',
   },
   actionButton: {
-    margin: 'auto',
+    marginTop: 'auto',
   },
   appContainer: {
     display: 'flex',

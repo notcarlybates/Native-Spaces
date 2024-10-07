@@ -31,14 +31,20 @@ const SpeakerLoadingIndicator = (props: Props) => {
 
 	if (loadingSpeakers.every((s) => s.value == 100)) return null;
 	return (
-		<Backdrop open sx={(theme) => ({ zIndex: theme.zIndex.appBar + 1 })}>
+		<Backdrop open sx={{
+			margin: 0,
+			fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+			fontSize: '1.5rem',
+			fontWeight: 'bold',
+			color: '#ffffff',
+		  }}>
 			<Stack spacing={1} p={2}>
-				<Typography color='white' variant='h5'>Downloading audio...</Typography>
-				{loadingSpeakers
+				<Typography color='white' variant='h5'>DOWNLOADING AUDIO...</Typography>
+				{/* {loadingSpeakers
 					.sort((a, b) => (a.id > b.id ? -1 : 1))
 					.map((s) => (
 						<LinearProgress variant='determinate' value={s.value} key={s.id} />
-					))}
+					))} */}
 			</Stack>
 		</Backdrop>
 	);

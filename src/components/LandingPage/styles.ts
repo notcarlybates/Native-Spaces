@@ -1,5 +1,8 @@
 import { makeStyles } from '@mui/styles';
 import landingHeaderImage from '../../assets/salem2.png';
+
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
 const useStyles = makeStyles((theme) => {
 	return {
 		topBar: {
@@ -47,29 +50,64 @@ const useStyles = makeStyles((theme) => {
 		},
 		landingBanner: {
 			width: 'auto',
-			height: 250,
+			height: 300,
 			[theme.breakpoints.down('sm')]: {
 				width: '100%',
 				height: 'auto',
 			},
 		},
-		fixedBanner: {
-			position: 'fixed',
-			top: '10vh', // Position below the top bar
-			left: '50%',
-			transform: 'translateX(-50%)',
-			//zIndex: 2, // Ensure it overlaps other content
-			width: '90%', // Responsive width
-			maxWidth: '400px', // Limit maximum width
-		  },
-		  fixedActionButton: {
-			position: 'fixed',
-			bottom: '22vh', // Position above the bottom of the viewport
-			left: '50%',
-			transform: 'translateX(-50%)',
-			zIndex: 2, // Ensure it overlaps other content
-		  },
-	};
-});
+			// fixedBanner: {
+			// 	position: 'fixed',
+			// 	top: '15vh', // Adjust this value to position the banner vertically
+			// 	left: '50%', // Center horizontally
+			// 	transform: 'translateX(-50%)',
+			// 	zIndex: 1, // Ensure it is on top
+			// },
+			// fixedActionButton: {
+			// 	position: 'fixed',
+			// 	top: '75vh', // Adjust this value to position the action button vertically
+			// 	left: '50%', // Center horizontally
+			// 	bottom: '22vh', // Position above the bottom of the viewport
+			// 	transform: 'translateX(-50%)',
+			// 	zIndex: 1, // Ensure it is on top
+			// },
+
+			fixedBanner: {
+				position: 'fixed',
+				top: '10vh', // Position below the top bar
+				left: '50%',
+				transform: 'translateX(-50%)',
+				//zIndex: 2, // Ensure it overlaps other content
+				width: '100%', // Responsive width
+				maxWidth: '400px', // Limit maximum width
+			  },
+			  fixedActionButton: {
+				position: 'fixed',
+				bottom: isMobile ? '16vh' : '15vh', // Position above the bottom of the viewport
+				left: '50%',
+				transform: 'translateX(-50%)',
+				zIndex: 2, // Ensure it overlaps other content
+			  },
+			  // Media query for smaller screens
+			//   '@media (max-width: 600px)': {
+			// 	fixedBanner: {
+			// 	  maxWidth: '400px'
+			// 	  //d top position for smaller screens
+			// 	},
+			// 	fixedActionButton: {
+			// 	  bottom: '15vh',
+			// 	  maxWidth: '150%'
+			// 	},
+			//   },
+			
+			  '@media (max-width: 400px)': {
+				fixedBanner: {
+				  top: '10vh', // Further adjustment for very small screens
+				},
+				fixedActionButton: {
+				  bottom: '16vh', // Further adjustment to prevent intersection
+				},
+			  },
+			}});
 
 export default useStyles;

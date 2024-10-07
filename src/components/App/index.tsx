@@ -46,11 +46,13 @@ export const App = () => {
 
         <Helmet>
           <meta charSet='utf-8' />
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
           <title>{roundware.project ? roundware.project.projectName : ''}</title>
           <link rel='icon' type='image/png' href={favicon} sizes='16x16' />
           <meta name='theme-color' content={theme.palette.primary.main} />
 
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`}></script>
+          
           <script>
             {`
             window.dataLayer = window.dataLayer || [];

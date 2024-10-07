@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
-import { createTheme } from '@mui/material';
 
 interface Props {
 	label: string;
@@ -12,6 +11,8 @@ interface Props {
 	style?: React.CSSProperties;
 	onClick?: () => void;
 }
+
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 	const classes = useStyles();
@@ -50,21 +51,25 @@ export const useStyles = makeStyles((theme) => ({
 		color: '#fff', // Text color for visibility
 		borderRadius: '8px',
 		margin: theme.spacing(2),
-		width: 250,
-		height: 75,
+		width: isMobile ? '260' :'290',
+		height: isMobile ? '85' : '120',
 		'&:hover': {
 			backgroundColor: '#00435F',
 		},
+		// [theme.breakpoints.down('md')]: {
+		// 	width: isMobile? 'auto' : '290',
+		// 	height: isMobile? 'auto' : '120',
+		// },
 		[theme.breakpoints.down('md')]: {
-			width: 250,
-			height: 75,
+			width: 290,
+			height: 120,
 		},
 	},
 	buttonLabel: {
 		margin: 'auto',
-		fontSize: '30px',
+		fontSize: isMobile ? '60px' : '50px',
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',
 	},
-}))
+}));

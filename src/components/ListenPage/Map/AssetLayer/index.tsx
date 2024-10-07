@@ -43,18 +43,23 @@ const AssetLayer = ({ updateLocation }: { updateLocation: (newLocation: Coordina
 	const [markerClusterer, setMarkerClusterer] = useState<Clusterer | null>(null);
 
 	// when the selected asset changes, pan to it
+// when the selected asset changes, pan to it
 useEffect(() => {
     if (!selectedAsset || !map || typeof selectedAsset.latitude !== 'number' || typeof selectedAsset.longitude !== 'number') {
         return;
     }
 
+    // Define an offset for panning slightly above the asset
+    const offset = 0.00004; // Adjust this value as needed
+
     const center = {
-        lat: selectedAsset.latitude,
-        lng: selectedAsset.longitude,
+        lat: selectedAsset.latitude + offset, // Add the offset to the latitude
+        lng: selectedAsset.longitude
     };
 
     // Pan to the location
     map.panTo(center);
+
 
     // Listener to set the zoom after the panning is complete
     const idleListener = map.addListener('idle', () => {

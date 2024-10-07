@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => {
 		roundwareMap: {
 			flexGrow: 1,
 			overflow: 'hidden',
-			
 		},
 	};
 });
@@ -39,7 +38,8 @@ const RoundwareMap = (props: RoundwareMapProps) => {
 	const { roundware } = useRoundware();
 	const [map, setMap] = useState<google.maps.Map | undefined>();
 
-	const { deleteFromURL, } = useURLSync();
+	const { deleteFromURL } = useURLSync();
+
 	const updateListenerLocation = (newLocation?: Coordinates) => {
 		if (!map) {
 			return;
@@ -49,13 +49,14 @@ const RoundwareMap = (props: RoundwareMapProps) => {
 			const center = map.getCenter();
 			location = { latitude: center!.lat(), longitude: center!.lng() };
 		}
-		deleteFromURL([`longitude`, `latitude`]);
-
+		deleteFromURL(['longitude', 'latitude']);
 		roundware.updateLocation(location!);
 		console.log('updated location on framework', location);
 	};
 
-	const onLoad = (map: google.maps.Map) => {
+	const onLoad = useCallback((map: google.maps.Map) => {
+		setMap(map); // Set the map state here
+
 		let restriction;
 		if (config.map.bounds != 'none') {
 			let bounds: google.maps.LatLngBounds;
@@ -118,16 +119,19 @@ const RoundwareMap = (props: RoundwareMapProps) => {
 			}
 			deleteFromURL('zoom');
 		});
-
-		setMap(map);
-	};
+	}, [deleteFromURL, roundware]);
 
 	return (
 		<>
 			{roundware.project ? (
 				<LoadScript id='script-loader' googleMapsApiKey={props.googleMapsApiKey}>
 					<AssetLoadingOverlay />
-					<GoogleMap mapContainerClassName={classes.roundwareMap + ' ' + props.className} onZoomChanged={updateListenerLocation} onDragEnd={updateListenerLocation} onLoad={onLoad}>
+					<GoogleMap
+						mapContainerClassName={classes.roundwareMap + ' ' + props.className}
+						onZoomChanged={updateListenerLocation}
+						onDragEnd={updateListenerLocation}
+						onLoad={onLoad} // Correctly set the onLoad event
+					>
 						<AssetLayer updateLocation={updateListenerLocation} />
 						<RangeCircleOverlay updateLocation={updateListenerLocation} />
 						{map && roundware.mixer?.playlist && <WalkingModeButton />}
