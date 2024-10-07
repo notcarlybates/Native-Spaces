@@ -12,11 +12,13 @@ interface Props {
 	onClick?: () => void;
 }
 
-const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Moved outside of the component
+// Move `isMobile` outside the component
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 	const history = useHistory();
-	const classes = useStyles({ isMobile }); // Properly pass the isMobile prop
+	// Pass the isMobile value to useStyles
+	const classes = useStyles({ isMobile });
 
 	return (
 		<Grid container direction="column" justifyContent="center" alignItems="center" style={style}>
@@ -44,6 +46,7 @@ const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 
 export default ActionButton;
 
+// Modify useStyles to accept props and use isMobile
 export const useStyles = makeStyles((theme) => ({
 	actionButton: ({ isMobile }: { isMobile: boolean }) => ({
 		padding: '12px 24px',
@@ -51,14 +54,10 @@ export const useStyles = makeStyles((theme) => ({
 		color: '#fff',
 		borderRadius: '8px',
 		margin: theme.spacing(2),
-		width: isMobile ? '260px' : '290px', // Adjust width and height based on isMobile
-		height: isMobile ? '85px' : '120px',
+		width: isMobile ? '290px' : '290px', // Adjust width based on isMobile
+		height: isMobile ? '120px' : '120px', // Adjust height based on isMobile
 		'&:hover': {
 			backgroundColor: '#00435F',
-		},
-		[theme.breakpoints.down('md')]: {
-			width: 290,
-			height: 120,
 		},
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
