@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
 		margin: 'auto',
-		fontSize: isMobile ? '10px' : '50px', // Adjust font size based on isMobile
+		fontSize: isMobile ? '60px' : '50px', // Adjust font size based on isMobile
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',
