@@ -12,11 +12,10 @@ interface Props {
 	onClick?: () => void;
 }
 
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
 const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
-	const classes = useStyles();
 	const history = useHistory();
+	const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Move isMobile here
+	const classes = useStyles({ isMobile }); // Pass isMobile as a prop to useStyles
 
 	return (
 		<Grid container direction="column" justifyContent="center" alignItems="center" style={style}>
@@ -45,31 +44,27 @@ const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 export default ActionButton;
 
 export const useStyles = makeStyles((theme) => ({
-	actionButton: {
+	actionButton: ({ isMobile }: { isMobile: boolean }) => ({
 		padding: '12px 24px',
 		backgroundColor: '#2E7CA8',
-		color: '#fff', // Text color for visibility
+		color: '#fff',
 		borderRadius: '8px',
 		margin: theme.spacing(2),
-		width: isMobile ? '260' :'290',
-		height: isMobile ? '85' : '120',
+		width: isMobile ? '260px' : '290px', // Adjust width and height based on isMobile
+		height: isMobile ? '85px' : '120px',
 		'&:hover': {
 			backgroundColor: '#00435F',
 		},
-		// [theme.breakpoints.down('md')]: {
-		// 	width: isMobile? 'auto' : '290',
-		// 	height: isMobile? 'auto' : '120',
-		// },
 		[theme.breakpoints.down('md')]: {
 			width: 290,
 			height: 120,
 		},
-	},
-	buttonLabel: {
+	}),
+	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
 		margin: 'auto',
-		fontSize: isMobile ? '60px' : '50px',
+		fontSize: isMobile ? '60px' : '50px', // Adjust font size based on isMobile
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',
-	},
+	}),
 }));
