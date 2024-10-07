@@ -12,10 +12,11 @@ interface Props {
 	onClick?: () => void;
 }
 
+const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Moved outside of the component
+
 const ActionButton = ({ label, linkTo, style = {}, onClick }: Props) => {
 	const history = useHistory();
-	const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Move isMobile here
-	const classes = useStyles({ isMobile }); // Pass isMobile as a prop to useStyles
+	const classes = useStyles({ isMobile }); // Properly pass the isMobile prop
 
 	return (
 		<Grid container direction="column" justifyContent="center" alignItems="center" style={style}>
@@ -62,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
 		margin: 'auto',
-		fontSize: isMobile ? '60px' : '50px', // Adjust font size based on isMobile
+		fontSize: isMobile ? '10px' : '50px', // Adjust font size based on isMobile
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',

@@ -87,7 +87,12 @@ const useStyles = makeStyles((theme) => {
 				left: '50%',
 				transform: 'translateX(-50%)',
 				zIndex: 2, // Ensure it overlaps other content
-			  },
+				// [theme.breakpoints.down('sm')]: {
+				// 	bottom: '16vh'
+				// },
+			},
+			  };
+			})
 			  // Media query for smaller screens
 			//   '@media (max-width: 600px)': {
 			// 	fixedBanner: {
@@ -100,14 +105,14 @@ const useStyles = makeStyles((theme) => {
 			// 	},
 			//   },
 			
-			  '@media (max-width: 400px)': {
-				fixedBanner: {
-				  top: '10vh', // Further adjustment for very small screens
-				},
-				fixedActionButton: {
-				  bottom: '16vh', // Further adjustment to prevent intersection
-				},
-			  },
-			}});
+			//   '@media (max-width: 400px)': {
+			// 	fixedBanner: {
+			// 	  top: '10vh', // Further adjustment for very small screens
+			// 	},
+			// 	fixedActionButton: {
+			// 	  bottom: '16vh', // Further adjustment to prevent intersection
+			// 	},
+			//   },
+			// }});
 
 export default useStyles;
