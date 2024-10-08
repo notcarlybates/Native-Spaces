@@ -52,17 +52,17 @@ export const useStyles = makeStyles((theme) => ({
 		padding: '12px 24px',
 		backgroundColor: '#2E7CA8',
 		color: '#fff',
-		borderRadius: '8px',
+		borderRadius: '13px',
 		margin: theme.spacing(2),
-		width: isMobile ? '200px' : '290px', // Adjust width based on isMobile
-		height: isMobile ? '80' : '120px', // Adjust height based on isMobile
+		width: isMobile ? '200px' : '280px', // Adjust width based on isMobile
+		height: isMobile ? '1000' : '110px', // Adjust height based on isMobile
 		'&:hover': {
 			backgroundColor: '#00435F',
 		},
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
 		margin: 'auto',
-		fontSize: isMobile ? '40px' : '50px', // Adjust font size based on isMobile
+		fontSize: isMobile ? '40px' : '46px', // Adjust font size based on isMobile
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',

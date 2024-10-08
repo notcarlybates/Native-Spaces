@@ -45,7 +45,7 @@ export const LandingPage = () => {
 						}}
 						label={'Listen'}
 						linkTo={'/listen'}
-						style={{ width: '100%', maxWidth: 'auto', height: '20vh'}}
+						style={{ width: '100%', maxWidth: 'auto', height: '12vh'}}
 					/>
 				)}
 			</div>
