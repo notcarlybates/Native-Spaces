@@ -122,7 +122,7 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
                 <DialogTitle id='description' onClose={() => setShowDialog(false)}>
                     Transcript
                 </DialogTitle>
-                <DialogContent style={{ backgroundColor: '#00686B' }}>
+                <DialogContent>
                     <DialogContentText>
                         <Interweave content={transcriptContent} />
                     </DialogContentText>

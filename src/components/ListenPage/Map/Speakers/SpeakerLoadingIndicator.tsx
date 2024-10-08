@@ -40,11 +40,11 @@ const SpeakerLoadingIndicator = (props: Props) => {
 		  }}>
 			<Stack spacing={1} p={2}>
 				<Typography color='white' variant='h5'>DOWNLOADING AUDIO...</Typography>
-				{/* {loadingSpeakers
+				{loadingSpeakers
 					.sort((a, b) => (a.id > b.id ? -1 : 1))
 					.map((s) => (
 						<LinearProgress variant='determinate' value={s.value} key={s.id} />
-					))} */}
+					))}
 			</Stack>
 		</Backdrop>
 	);
