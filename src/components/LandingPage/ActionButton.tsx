@@ -55,7 +55,7 @@ export const useStyles = makeStyles((theme) => ({
 		borderRadius: '13px',
 		margin: theme.spacing(2),
 		width: isMobile ? '250px' : '280px', // Adjust width based on isMobile
-		height: isMobile ? '120px' : '110px', // Adjust height based on isMobile
+		height: isMobile ? '110px' : '110px', // Adjust height based on isMobile
 		'&:hover': {
 			backgroundColor: '#00435F',
 		},
