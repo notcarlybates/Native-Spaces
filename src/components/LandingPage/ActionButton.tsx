@@ -50,14 +50,14 @@ export default ActionButton;
 export const useStyles = makeStyles((theme) => ({
 	actionButton: ({ isMobile }: { isMobile: boolean }) => ({
 		padding: '12px 24px',
-		backgroundColor: '#2E7CA8',
+		backgroundColor: '#489AB7',
 		color: '#fff',
 		borderRadius: '13px',
 		margin: theme.spacing(2),
 		width: isMobile ? '250px' : '280px', // Adjust width based on isMobile
 		height: isMobile ? '110px' : '110px', // Adjust height based on isMobile
 		'&:hover': {
-			backgroundColor: '#00435F',
+			backgroundColor: '#2E7CA8',
 		},
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
