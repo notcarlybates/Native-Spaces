@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
   title: {
     position: 'relative',
       fontSize: '25px',
-      fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+      fontFamily: 'sans-serif',
       fontWeight: 'bold',
       left: isMobile? '17px' : '45px',
       flexGrow: 1,

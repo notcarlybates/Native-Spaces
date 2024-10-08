@@ -31,7 +31,12 @@ const AssetLoadingOverlay = () => {
 		<Backdrop className={classes.backdrop} open={!Array.isArray(roundware.assetData)}>
 			<Card className={classes.loadingCard}>
 				<CircularProgress className={classes.loadingSpinner} />
-				<Typography className={classes.loadingMessage}>Loading audio...</Typography>
+				<Typography 
+				color='white'
+				fontFamily={'sans-serif'} 
+				fontWeight = 'bold'
+				variant='h5'
+				className={classes.loadingMessage}>LOADING...</Typography>
 			</Card>
 		</Backdrop>
 	);

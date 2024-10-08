@@ -33,17 +33,28 @@ const SpeakerLoadingIndicator = (props: Props) => {
 	return (
 		<Backdrop open sx={{
 			margin: 0,
-			fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-			fontSize: '1.5rem',
+			fontFamily: 'sans-serif',
+			fontSize: '1.2rem',
 			fontWeight: 'bold',
 			color: '#ffffff',
 		  }}>
 			<Stack spacing={1} p={2}>
-				<Typography color='white' variant='h5'>DOWNLOADING AUDIO...</Typography>
+				<Typography color='white'
+				fontFamily={'sans-serif'} 
+				fontSize = '1.2rem'
+				fontWeight = 'bold'
+				variant='h5'>DOWNLOADING AUDIO...</Typography>
 				{loadingSpeakers
 					.sort((a, b) => (a.id > b.id ? -1 : 1))
 					.map((s) => (
-						<LinearProgress variant='determinate' value={s.value} key={s.id} />
+						<LinearProgress variant='determinate' value={s.value} key={s.id}
+						sx={{
+							backgroundColor: '#489AB7', // Color for the track
+							'& .MuiLinearProgress-bar': {
+							 backgroundColor: '#00324A', // Custom color for the bar
+							},
+						  }}
+						/>
 					))}
 			</Stack>
 		</Backdrop>

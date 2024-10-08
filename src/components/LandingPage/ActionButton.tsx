@@ -64,7 +64,7 @@ export const useStyles = makeStyles((theme) => ({
 		margin: 'auto',
 		fontSize: isMobile ? '45px' : '46px', // Adjust font size based on isMobile
 		position: 'relative',
-		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+		fontFamily: 'sans-serif',
 		fontWeight: 'bold',
 	}),
 }));

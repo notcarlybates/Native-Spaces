@@ -132,20 +132,20 @@ const OutOfRangeMessage = (props: Props) => {
         return (
             <ThemeProvider theme={lightTheme}>
                 <Paper
-    sx={{
-        position: 'fixed',
-        top: '90px', // 60px header + 10px gap
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 1000,
-        p: 2,
-        borderRadius: 2,
-        backgroundColor: '#00435F',
-        color: 'white',
-    }}
->
-    {roundware.project.data?.out_of_range_message}
-</Paper>
+                    sx={{
+                        position: 'fixed',
+                        top: '90px', // 60px header + 10px gap
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        zIndex: 1000,
+                        p: 2,
+                        borderRadius: 2,
+                        backgroundColor: '#00435F',
+                        color: 'white',
+                    }}
+                >
+                    {roundware.project.data?.out_of_range_message}
+                </Paper>
 
             </ThemeProvider>)
     }

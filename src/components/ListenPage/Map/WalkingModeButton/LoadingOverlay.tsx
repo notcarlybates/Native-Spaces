@@ -12,7 +12,12 @@ const LoadingOverlay = ({ open, message }: LoadingOverlayProps) => {
 		<Backdrop className={classes.backdrop} open={open}>
 			<Card className={classes.loadingCard}>
 				<CircularProgress className={classes.loadingSpinner} />
-				<Typography className={classes.loadingMessage}>{message}</Typography>
+				<Typography
+				 color='white'
+				fontFamily={'sans-serif'} 
+				fontWeight = 'bold'
+				variant='h5'
+				className={classes.loadingMessage}>{message}</Typography>
 			</Card>
 		</Backdrop>
 	);

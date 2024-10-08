@@ -113,7 +113,7 @@ const ShareDialog = (props: Props) => {
       component="h2"
       sx={{
         margin: 0,
-		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+		fontFamily: 'sans-serif',
         fontSize: '1.5rem', // Adjust the size of the title text
         color: '#ffffff', // Ensure the title text has proper contrast
       }}

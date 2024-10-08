@@ -56,16 +56,19 @@ const useStyles = makeStyles((theme) => ({
   fixedBanner: {
     position: 'fixed',
     top: '10vh',
+	bottom: '60vh',
     left: '50%',
     transform: 'translateX(-50%)',
     width: isMobile? '90%' : '100%',
-    maxWidth: '400px',
+    maxWidth: isMobile? '400px' : '60vh',
   },
   fixedActionButton: {
     position: 'fixed',
     bottom: isMobile ? '15vh' : '15vh', // Use isMobile directly here
     left: '50%',
     transform: 'translateX(-50%)',
+	width: isMobile? '90%' : '100%',
+    maxWidth: isMobile? '400px' : '60vh',
     zIndex: 2,
   },
   '@media (max-width: 400px)': {

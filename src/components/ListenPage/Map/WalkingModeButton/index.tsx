@@ -220,8 +220,10 @@ const walkingModeButton = () => {
 
 	return (
 		<div>
-			<LoadingOverlay open={walkingModeStatus === 'locating'} message={'Locating... \n\nPlease allow location permissions.'} />
-
+			<LoadingOverlay 
+        open={walkingModeStatus === 'locating'} 
+        message={'LOCATING...'} 
+    />
 			{/* permission denied dialog */}
 			<PermissionDeniedDialog open={walkingModeStatus === 'error' && isEqual(walkingModeErrorMessage, messages.errors.permissionDenied)} onClose={() => setWalkingModeStatus('')} functionality={'location'} />
 			<Dialog open={(walkingModeStatus === 'error' && !isEqual(walkingModeErrorMessage, messages.errors.permissionDenied)) || walkingModeStatus === 'out-of-range'}>
