@@ -49,9 +49,9 @@ const SpeakerLoadingIndicator = (props: Props) => {
 					.map((s) => (
 						<LinearProgress variant='determinate' value={s.value} key={s.id}
 						sx={{
-							backgroundColor: '#489AB7', // Color for the track
+							backgroundColor: '#00324A', // Color for the track
 							'& .MuiLinearProgress-bar': {
-							 backgroundColor: '#00324A', // Custom color for the bar
+							 backgroundColor: '#489AB7', // Custom color for the bar
 							},
 						  }}
 						/>
