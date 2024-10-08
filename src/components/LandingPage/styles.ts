@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '12px 24px',
     backgroundColor: '#00435F',
     color: '#00435F',
-    borderRadius: '8px',
+    borderRadius: '10px',
     '&:hover': {
       backgroundColor: '#00324A',
     },
@@ -46,24 +46,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   landingBanner: {
-    width: '100%',
+    width: isMobile ? '100%' : '100%',
     height: 'auto',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      height: 'auto',
-    },
+    // [theme.breakpoints.down('sm')]: {
+    //   width: '100%',
+    //   height: 'auto',
+    // },
   },
   fixedBanner: {
     position: 'fixed',
     top: '10vh',
     left: '50%',
     transform: 'translateX(-50%)',
-    width: '100%',
+    width: isMobile? '90%' : '100%',
     maxWidth: '400px',
   },
   fixedActionButton: {
     position: 'fixed',
-    bottom: isMobile ? '16vh' : '15vh', // Use isMobile directly here
+    bottom: isMobile ? '15vh' : '15vh', // Use isMobile directly here
     left: '50%',
     transform: 'translateX(-50%)',
     zIndex: 2,

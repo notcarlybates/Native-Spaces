@@ -54,15 +54,15 @@ export const useStyles = makeStyles((theme) => ({
 		color: '#fff',
 		borderRadius: '13px',
 		margin: theme.spacing(2),
-		width: isMobile ? '200px' : '280px', // Adjust width based on isMobile
-		height: isMobile ? '1000' : '110px', // Adjust height based on isMobile
+		width: isMobile ? '250px' : '280px', // Adjust width based on isMobile
+		height: isMobile ? '120px' : '110px', // Adjust height based on isMobile
 		'&:hover': {
 			backgroundColor: '#00435F',
 		},
 	}),
 	buttonLabel: ({ isMobile }: { isMobile: boolean }) => ({
 		margin: 'auto',
-		fontSize: isMobile ? '40px' : '46px', // Adjust font size based on isMobile
+		fontSize: isMobile ? '45px' : '46px', // Adjust font size based on isMobile
 		position: 'relative',
 		fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 		fontWeight: 'bold',

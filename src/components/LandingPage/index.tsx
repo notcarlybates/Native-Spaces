@@ -32,7 +32,7 @@ export const LandingPage = () => {
 					src={banner} 
 					className={classes.landingBanner} 
 					alt="Banner" 
-					style={{ width: '100%', maxWidth: '400px', height: 'auto' }} // Responsive sizing
+					//style={{ width: '100%', maxWidth: '400px', height: 'auto' }} // Responsive sizing
 				/>
 			</div>
 
