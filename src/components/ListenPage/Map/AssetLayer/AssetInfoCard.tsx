@@ -3,7 +3,6 @@ import { Button, Dialog, DialogContent, DialogContentText, DialogTitle as MuiDia
 import { createStyles, makeStyles, withStyles, WithStyles } from '@mui/styles';
 import { IAssetCardConfig } from 'configTypes';
 import Interweave from 'interweave';
-import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Roundware } from 'roundware-web-framework';
 import { IAssetData } from 'roundware-web-framework/dist/types/asset';
@@ -22,37 +21,24 @@ interface Props {
 const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
     const [imageAssets, setImageAssets] = useState<IImageAsset[]>([]);
     const [textAssets, setTextAssets] = useState<IAssetData[]>([]);
-
-    const classes = useStyles();
-
     const [showDialog, setShowDialog] = useState(false);
     const [transcriptContent, setTranscriptContent] = useState<string | null>(null);
+    const classes = useStyles();
 
     useEffect(() => {
-        if (Array.isArray(asset?.envelope_ids) && asset?.envelope_ids?.length > 0) {
-            roundware
-                .getAssets({
-                    media_type: 'photo',
-                    // @ts-ignore
-                    envelope_id: asset?.envelope_ids,
-                })
-                .then(setImageAssets);
+        if (Array.isArray(asset?.envelope_ids) && asset?.envelope_ids.length > 0) {
+            roundware.getAssets({ media_type: 'photo', envelope_ids: asset.envelope_ids }).then(setImageAssets);
         }
     }, [asset]);
 
     useEffect(() => {
-        if (Array.isArray(asset?.envelope_ids) && asset?.envelope_ids?.length > 0) {
-            roundware
-                .getAssets({
-                    media_type: 'text',
-                    envelope_ids: asset.envelope_ids,
-                })
-                .then(setTextAssets);
+        if (Array.isArray(asset?.envelope_ids) && asset?.envelope_ids.length > 0) {
+            roundware.getAssets({ media_type: 'text', envelope_ids: asset.envelope_ids }).then(setTextAssets);
         }
     }, [asset]);
 
-    const primaryImageUrl = imageAssets && imageAssets[0]?.file;
-    const primaryTextUrl = textAssets && textAssets[0]?.file;
+    const primaryImageUrl = imageAssets[0]?.file;
+    const primaryTextUrl = textAssets[0]?.file;
 
     const handleTranscriptButtonClick = () => {
         if (asset.description) {
@@ -62,14 +48,10 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
     };
 
     const infoItemsResolver = (elementName: string, index: number, list: string[]) => {
-        function showDividerIfEligible(): React.ReactNode {
+        const showDividerIfEligible = (): React.ReactNode => {
             const prev = list[index - 1];
-            if (['description', 'text', 'tags'].includes(prev)) {
-                return <Divider style={{ marginTop: 5, marginBottom: 5 }} />;
-            }
-            return null;
-        }
-        const description = asset.description;
+            return ['description', 'text', 'tags'].includes(prev) ? <Divider style={{ marginTop: 5, marginBottom: 5 }} /> : null;
+        };
 
         switch (elementName) {
             case 'tags':
@@ -82,29 +64,22 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
                 );
             case 'description':
                 return (
-                    <div key={elementName} style={{ marginTop: 5 , textAlign: 'center'}}>
+                    <div key={elementName} style={{ marginTop: 5, textAlign: 'center' }}>
                         {showDividerIfEligible()}
-                        <Button 
-                            onClick={handleTranscriptButtonClick} 
-                            size='small' 
-                            className={classes.readMoreButton} 
-                            >
+                        <Button onClick={handleTranscriptButtonClick} size='small' className={classes.readMoreButton}>
                             View Transcript
                         </Button>
                     </div>
                 );
-                
             case 'photo':
                 return primaryImageUrl ? <LightboxModal key={elementName} imageUrl={primaryImageUrl} /> : null;
-
             case 'text':
                 return primaryTextUrl ? (
                     <div key={elementName}>
                         {showDividerIfEligible()}
-                        <TextDisplay textUrl={primaryTextUrl!} />
+                        <TextDisplay textUrl={primaryTextUrl} />
                     </div>
                 ) : null;
-
             case 'audio':
                 return <AssetPlayer key={elementName} style={{ width: '100%', marginTop: 10 }} asset={asset} captureEvents />;
             case 'actions':
@@ -117,13 +92,12 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
     return (
         <Stack spacing={1}>
             {cardConfig.available.map((item, index, list) => infoItemsResolver(item, index, list))}
-            {/* Dialog for transcript content */}
             <Dialog open={showDialog} onClose={() => setShowDialog(false)} className={classes.dialogContent}>
                 <DialogTitle id='description' onClose={() => setShowDialog(false)}>
                     Transcript
                 </DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
+                <DialogContent style={{ backgroundColor: '#00686B', color: '#fdfdfd' }}>
+                    <DialogContentText style={{ backgroundColor: '#00686B', color: '#fdfdfd' }}>
                         <Interweave content={transcriptContent} />
                     </DialogContentText>
                 </DialogContent>
@@ -132,25 +106,15 @@ const AssetInfoCard = ({ asset, roundware, cardConfig, actions }: Props) => {
     );
 };
 
-export default AssetInfoCard;
-
 const LightboxModal = ({ imageUrl }: { imageUrl: string }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     return (
         <div>
-            <img src={imageUrl} width={150} onClick={handleOpen} />
-            <Modal open={open} onClose={handleClose}>
-                <img src={imageUrl} className={classes.paper} />
+            <img src={imageUrl} width={150} onClick={() => setOpen(true)} alt="Lightbox" />
+            <Modal open={open} onClose={() => setOpen(false)}>
+                <img src={imageUrl} className={classes.paper} alt="Lightbox" />
             </Modal>
         </div>
     );
@@ -158,30 +122,29 @@ const LightboxModal = ({ imageUrl }: { imageUrl: string }) => {
 
 const TextDisplay = ({ textUrl }: { textUrl: string }) => {
     const [storedText, setStoredText] = useState<string>('');
-
-    useEffect(() => {
-        fetch(textUrl).then(function (response) {
-            response.text().then(function (text) {
-                setStoredText(text);
-            });
-        });
-    }, []);
     const [showDialog, setShowDialog] = useState(false);
     const classes = useStyles();
+
+    useEffect(() => {
+        fetch(textUrl)
+            .then(response => response.text())
+            .then(setStoredText);
+    }, [textUrl]);
+
     return (
         <div>
-            <Interweave content={storedText.length > 100 ? storedText.substr(0, 70) + '...' : storedText} />
+            <Interweave content={storedText.length > 100 ? `${storedText.substr(0, 70)}...` : storedText} />
             {storedText.length > 100 && (
                 <Button onClick={() => setShowDialog(true)} size='small' color='secondary' className={classes.readMoreButton} style={{ color: '#2E7CA8' }}>
                     More
                 </Button>
             )}
             {showDialog && (
-                <Dialog open={showDialog}>
+                <Dialog open={showDialog} onClose={() => setShowDialog(false)} className={classes.dialogContent}>
                     <DialogTitle id='description' onClose={() => setShowDialog(false)}>
                         Transcript
                     </DialogTitle>
-                    <DialogContent style={{ backgroundColor: '#00686B' }}>
+                    <DialogContent style={{ backgroundColor: '#00686B', color: '#fdfdfd' }}>
                         <DialogContentText>
                             <Interweave content={storedText} />
                         </DialogContentText>
@@ -204,24 +167,31 @@ const useStyles = makeStyles((theme) => ({
         transform: 'translate(-50%, -50%)',
         outline: 0,
         minWidth: 300,
-        color: '#00686B'
+        color: '#00686B',
     },
     readMoreButton: {
         color: '#489AB7',
     },
+    dialogTitle: {
+        margin: 0,
+        padding: theme.spacing(2),
+        backgroundColor: '#00686B',
+        color: '#FFFFFF',
+    },
+	root: {
+		margin: 0,
+		padding: theme.spacing(2),
+		color: 'white'
+	},
+    closeButton: {
+        position: 'absolute',
+        right: theme.spacing(1),
+        top: theme.spacing(1),
+        color: 'white',
+    },
     dialogContent: {
-        root: {
-            margin: 0,
-            padding: theme.spacing(2),
-            backgroundColor: '#00686B', // Add this line
-        },
-        closeButton: {
-            position: 'absolute',
-            right: theme.spacing(1),
-            top: theme.spacing(1),
-            color: '#FFFFFF', // Adjust as needed
-        },
-    }
+        color: '#00686B !important',
+    },
 }));
 
 const styles = (theme: Theme) =>
@@ -229,14 +199,16 @@ const styles = (theme: Theme) =>
         root: {
             margin: 0,
             padding: theme.spacing(2),
+			color: 'white'
         },
         closeButton: {
             position: 'absolute',
             right: theme.spacing(1),
             top: theme.spacing(1),
-            color: '#00686B',
+            color: 'white',
         },
     });
+
 export interface DialogTitleProps extends WithStyles<typeof styles> {
     id: string;
     children: React.ReactNode;
@@ -245,20 +217,29 @@ export interface DialogTitleProps extends WithStyles<typeof styles> {
 
 const DialogTitle = withStyles(styles)((props: DialogTitleProps) => {
     const { children, onClose, ...other } = props;
+    const classes = useStyles();
     return (
-        <MuiDialogTitle {...other}>
+        <MuiDialogTitle {...other} className={classes.dialogTitle}>
             <Grid container justifyContent='space-between'>
                 <Grid item>
                     <Typography variant='h6'>{children}</Typography>
                 </Grid>
                 <Grid item>
-                    {onClose ? (
-                        <IconButton aria-label='close' onClick={onClose}>
+                    {onClose && (
+                        <IconButton aria-label='close' onClick={onClose}
+						sx={{
+							position: 'absolute',
+							top: 8,
+							right: 8,
+							color: '#ffffff', // Same color as the dialog for contrast
+						  }}>
                             <CloseIcon />
                         </IconButton>
-                    ) : null}
+                    )}
                 </Grid>
             </Grid>
         </MuiDialogTitle>
     );
 });
+
+export default AssetInfoCard;

@@ -1,9 +1,6 @@
 import { makeStyles } from '@mui/styles';
-import config from 'config';
-import { defaultTheme } from '../../styles';
 import landingHeaderImage from '../../assets/background.png';
 import BannerImage from '../../assets/Banner_Tile.svg';
-import {useMediaQuery} from '@mui/material';
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 

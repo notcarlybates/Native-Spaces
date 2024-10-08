@@ -73,13 +73,13 @@ const InfoPopup = () => {
                             </Typography>
                             <Typography gutterBottom mb={3}>
                             Native Spaces was initiated by Elizabeth Solomon and Sarah Kanouse in collaboration with the Massachusett Tribe at Ponkapoag and the municipalities and organizations sponsoring audio content. The title is related to Natchee Blu Barnd’s book{" "}
-                            <Link href='https://osupress.oregonstate.edu/book/native-space' target='_blank'> Native Space</Link>, which argues that Indigenous communities use space even in colonized territories to reclaim their identities and assert an unbreakable relationship with land.
+                            <Link href='https://osupress.oregonstate.edu/book/native-space' color='#a4e5fc' target='_blank'> Native Space</Link>, which argues that Indigenous communities use space even in colonized territories to reclaim their identities and assert an unbreakable relationship with land.
 
                             </Typography>
                             <Typography gutterBottom mb={3}>
-                            The medallion logo is adapted from a design by Sadie Red Wing (Spirit Lake Lakota). Music by the{' '}
-                            <Link href='https://www.facebook.com/RedHawkSingersAndDancers/' target='_blank'>Red Hawk Singers </Link> and Pomham Singers, recorded at the 2024 Veteran’s Powwow, with bass motifs by{' '}
-                            <Link href='http://erikmusic.net/about.htm' target='_blank'>Erik Kramer</Link>. 
+                            The medallion logo is adapted from a design by{" "}<Link href='https://www.sadieredwing.com/' color='#a4e5fc' target='_blank'>Sadie Red Wing</Link> (Spirit Lake Lakota). Music by the{' '}
+                            <Link href='https://www.facebook.com/RedHawkSingersAndDancers/' color='#a4e5fc' target='_blank'>Red Hawk Singers </Link> and Pomham Singers, recorded at the 2024 Veteran’s Powwow, with bass motifs by{' '}
+                            <Link href='http://erikmusic.net/about.htm' color='#a4e5fc' target='_blank'>Erik Kramer</Link>. 
                             </Typography>
                             <Typography gutterBottom mb={3}>
                             Halsey Bergund developed the Roundware platform on which this project is built, and Carly Bates customized its code for Native Spaces.
@@ -109,7 +109,7 @@ const InfoPopup = () => {
 </Typography>
 <Typography gutterBottom mb={3}>
                             Original recordings by Sarah Kanouse, Nicholas Brown, Jimmy Bautista, and Nathen Green. Additional field recordings by{' '}
-                            <Link href="https://freesound.org/people/kantoesploras/" target="_blank">kantoesploras</Link>
+                            <Link href="https://freesound.org/people/kantoesploras/" color='#a4e5fc' target="_blank">kantoesploras</Link>
                             , including “Common Raven, Mt. Greylock,” “Desert Natural Area,” and “Eastern Whip-poor-will” from FreeSound.org used under a Creative Commons Attribution NonCommercial 4.0 license
 
                             </Typography>
