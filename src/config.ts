@@ -24,7 +24,7 @@ let config: IConfig = {
 		geoListenMode: 'device',
 		autoplay: false,
 		speaker: {
-			sync: true,
+			sync: false,
 			prefetch: true,
 			loop: true,
 			acceptableDelayMs: 50,
