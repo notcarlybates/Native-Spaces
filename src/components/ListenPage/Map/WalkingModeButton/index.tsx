@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => {
 			position: 'fixed',
 			zIndex: 100,
 			left: 20,
-			bottom: 68,
+			bottom: 75,
 			backgroundColor: '#2E7CA8',
 			touchAction: 'manipulation', // Ensures proper handling on mobile devices
 			'&:hover': {

@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
   bottom: '0', // Stick to the bottom of the screen
   position: 'fixed',
     width: '100%',  // Full width of the container
-    height: '60px', // Adjust height based on desired banner size
+    height: '65px', // Adjust height based on desired banner size
     backgroundImage: `url(${BannerImage})`, // Use imported BannerImage
     //backgroundSize: 'fit', // Ensure the entire image is visible
     backgroundPosition: 'center', // Center the image
