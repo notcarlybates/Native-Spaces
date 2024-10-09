@@ -124,6 +124,7 @@ const RoundwareMixerControl = () => {
 						setSnackbarOpen(true);
 					}
 				}}
+				sx={{ left: '-8px' }}
 			>
 				<SkipNextIcon fontSize="large"/>
 			</Button>
