@@ -47,6 +47,7 @@ export const App = () => {
         <Helmet>
           <meta charSet='utf-8' />
           <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+          
           <title>{roundware.project ? roundware.project.projectName : ''}</title>
           <link rel='icon' type='image/png' href={favicon} sizes='16x16' />
           <meta name='theme-color' content={theme.palette.primary.main} />
@@ -100,7 +101,7 @@ export const App = () => {
                   )}
                 </Route>
               </Stack>
-              <div>
+              <div style={{marginLeft: '7vh'}}>
                 <Route path='/listen'>
                   <ListenDrawer />
                   <RoundwareMixerControl />
