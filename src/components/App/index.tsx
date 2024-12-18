@@ -80,7 +80,6 @@ export const App = () => {
               <ShareButton />
             </Toolbar>
           </AppBar>
-          <PlatformMessage getMessage={getMessageOnLoad} />
           <Toolbar />
           <div className={classes.appContainer}>
             <Switch>

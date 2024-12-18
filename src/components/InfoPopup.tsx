@@ -12,11 +12,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import InfoIcon from '@mui/icons-material/Info';
 
 const InfoPopup = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [showFullCredits, setShowFullCredits] = useState(false);
 
     useEffect(() => {
-        const hasVisited = localStorage.getItem('hasVisited');
+        const hasVisited = sessionStorage.getItem('hasVisited');
         if (!hasVisited) {
             setOpen(true);
             localStorage.setItem('hasVisited', 'true');
