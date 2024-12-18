@@ -16,7 +16,7 @@ const InfoPopup = () => {
     const [showFullCredits, setShowFullCredits] = useState(false);
 
     useEffect(() => {
-        const hasVisited = sessionStorage.getItem('hasVisited');
+        const hasVisited = localStorage.getItem('hasVisited');
         if (!hasVisited) {
             setOpen(true);
             localStorage.setItem('hasVisited', 'true');
