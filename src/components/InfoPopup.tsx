@@ -20,7 +20,7 @@ const InfoPopup = () => {
         const hasVisited = Cookies.get('hasVisited');
         if (!hasVisited) {
             setOpen(true);
-            localStorage.setItem('hasVisited', 'true');
+            Cookies.set('hasVisited', 'true');
         }
     }, []);
 
