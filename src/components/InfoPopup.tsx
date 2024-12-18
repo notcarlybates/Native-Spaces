@@ -18,9 +18,12 @@ const InfoPopup = () => {
 
     useEffect(() => {
         const hasVisited = Cookies.get('hasVisited');
+        console.log("Has Visited Cookie: ", hasVisited); 
+
+        // Show popup if not visited before
         if (!hasVisited) {
             setOpen(true);
-            Cookies.set('hasVisited', 'true');
+            Cookies.set('hasVisited', 'true', { expires: 7 });
         }
     }, []);
 
