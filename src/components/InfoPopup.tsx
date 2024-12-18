@@ -10,13 +10,14 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import InfoIcon from '@mui/icons-material/Info';
+import Cookies from 'js-cookie';
 
 const InfoPopup = () => {
     const [open, setOpen] = useState(false);
     const [showFullCredits, setShowFullCredits] = useState(false);
 
     useEffect(() => {
-        const hasVisited = localStorage.getItem('hasVisited');
+        const hasVisited = Cookies.get('hasVisited');
         if (!hasVisited) {
             setOpen(true);
             localStorage.setItem('hasVisited', 'true');
