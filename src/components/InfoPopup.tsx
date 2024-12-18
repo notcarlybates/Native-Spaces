@@ -12,7 +12,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import InfoIcon from '@mui/icons-material/Info';
 
 const InfoPopup = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [showFullCredits, setShowFullCredits] = useState(false);
 
     useEffect(() => {
