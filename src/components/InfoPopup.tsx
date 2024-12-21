@@ -17,15 +17,19 @@ const InfoPopup = () => {
     const [showFullCredits, setShowFullCredits] = useState(false);
 
     useEffect(() => {
-        const hasVisited = Cookies.get('hasVisited');
-        console.log("Has Visited Cookie: ", hasVisited); 
-
-        // Show popup if not visited before
-        if (!hasVisited) {
+        const visitCount = Cookies.get('visitCount');
+        const visits = visitCount ? parseInt(visitCount, 10) : 0; // Convert string to number or default to 0
+    
+        console.log("Visit Count Cookie: ", visits); 
+    
+        // Show popup if visits are less than 2
+        if (visits < 2) {
             setOpen(true);
-            Cookies.set('hasVisited', 'true', { expires: 7 });
+            Cookies.set('visitCount', (visits + 1).toString(), { expires: 7 }); // Convert number to string
         }
     }, []);
+    
+    
 
     const handleClickOpen = () => {
         setOpen(true);
